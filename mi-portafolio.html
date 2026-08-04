@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cristian David Rios | Software Engineering & Agile Product Execution</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-white">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <span class="text-xl font-bold tracking-tight text-cyan-400">CR<span class="text-slate-100">.dev</span></span>
+      <div class="flex items-center gap-6 text-sm font-medium text-slate-400">
+        <a href="#proyectos" class="hover:text-cyan-400 transition">Proyectos</a>
+        <a href="#experiencia" class="hover:text-cyan-400 transition">Experiencia</a>
+        <a href="#sobre-mi" class="hover:text-cyan-400 transition">Sobre mí</a>
+        <a href="https://github.com/Cristianriosrivas" target="_blank" class="hover:text-cyan-400 transition">GitHub</a>
+        <a href="#contacto" class="hover:text-cyan-400 transition">Contacto</a>
+        <!-- BOTÓN VER CV -->
+        <a href="https://docs.google.com/viewer?url=https://github.com/Cristianriosrivas/mi-portafolio/raw/main/cristian_rios_cv.docx" target="_blank" class="px-3 py-1.5 rounded-md border border-cyan-500/50 text-cyan-400 hover:bg-cyan-500 hover:text-slate-950 transition font-semibold">
+          Ver CV
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="min-h-screen flex items-center justify-center pt-24 pb-12 px-6">
+    <div class="max-w-4xl text-center">
+      <span class="inline-block py-1 px-3 rounded-full text-xs font-semibold bg-cyan-950 text-cyan-400 border border-cyan-800/50 mb-6">
+        Scrum Master Certificado & Desarrollador Full Stack
+      </span>
+      <h1 class="text-4xl md:text-6xl font-extrabold text-slate-100 tracking-tight mb-6">
+        Cristian David Rios
+        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 text-3xl md:text-5xl mt-2">
+          Software Engineering & Agile Product Execution
+        </span>
+      </h1>
+      <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
+        Conecto código limpio con estrategia de negocio. Desarrollo ecosistemas web y soluciones comerciales combinando arquitectura técnica, UX/UI y metodologías Scrum.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#proyectos" class="px-6 py-3 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold transition shadow-lg shadow-cyan-500/20">
+          Explorar mi trabajo
+        </a>
+        <a href="https://docs.google.com/viewer?url=https://github.com/Cristianriosrivas/mi-portafolio/raw/main/cristian_rios_cv.docx" target="_blank" class="px-6 py-3 rounded-lg border border-cyan-500/50 hover:border-cyan-400 text-cyan-400 font-semibold transition">
+          Ver mi CV (Word)
+        </a>
+        <a href="https://github.com/Cristianriosrivas" target="_blank" class="px-6 py-3 rounded-lg border border-slate-700 hover:border-slate-500 text-slate-300 font-semibold transition">
+          Mi GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS DESTACADOS -->
+  <section id="proyectos" class="py-20 px-6 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold mb-12 text-slate-100 flex items-center gap-3">
+      <span class="text-cyan-400">01.</span> Proyectos Destacados
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      
+      <!-- Agente LuminaStore -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-cyan-500/50 transition flex flex-col justify-between">
+        <div>
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="text-xl font-bold text-slate-100">Agente LuminaStore</h3>
+            <span class="text-xs bg-purple-950 text-purple-300 border border-purple-800 px-2 py-1 rounded">IA / RAG</span>
+          </div>
+          <p class="text-slate-400 text-sm mb-4">
+            Asistente de IA para soporte corporativo basado en arquitectura RAG. Responde consultas complejas sobre un e-commerce leyendo un PDF oficial sin alucinaciones de LLMs.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">Python</span>
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">LangChain</span>
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">Cohere</span>
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">FAISS</span>
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">Streamlit</span>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <a href="https://luminastore-agente-ia-challenge-alura.streamlit.app/" target="_blank" class="text-sm font-semibold text-cyan-400 hover:underline">Demo en Vivo →</a>
+          <a href="https://github.com/Cristianriosrivas/luminastore-agente-ia" target="_blank" class="text-sm font-semibold text-slate-400 hover:text-slate-200">GitHub</a>
+        </div>
+      </div>
+
+      <!-- Alza tu Voz -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-cyan-500/50 transition flex flex-col justify-between">
+        <div>
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="text-xl font-bold text-slate-100">Alza tu Voz</h3>
+            <span class="text-xs bg-emerald-950 text-emerald-300 border border-emerald-800 px-2 py-1 rounded">Impacto Social</span>
+          </div>
+          <p class="text-slate-400 text-sm mb-4">
+            Plataforma digital para la denuncia segura de acoso y violencia con recursos de apoyo integrados. Cuenta con soporte multimedia e interacción en tiempo real.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">Vue 3</span>
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">FastAPI</span>
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">PostgreSQL</span>
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">WebSockets</span>
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">Ollama</span>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <a href="https://github.com/Cristianriosrivas" target="_blank" class="text-sm font-semibold text-cyan-400 hover:underline">Ver en GitHub →</a>
+        </div>
+      </div>
+
+      <!-- ParqueApp -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-cyan-500/50 transition flex flex-col justify-between">
+        <div>
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="text-xl font-bold text-slate-100">ParqueApp</h3>
+            <span class="text-xs bg-blue-950 text-blue-300 border border-blue-800 px-2 py-1 rounded">Web App</span>
+          </div>
+          <p class="text-slate-400 text-sm mb-4">
+            Sistema web full-stack para optimizar la búsqueda, reserva y gestión operativa de aparcamientos con mapas en tiempo real y roles diferenciados de usuario.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">Vue 3</span>
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">Tailwind CSS</span>
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">Pinia</span>
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">Firebase</span>
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">Leaflet</span>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <a href="https://github.com/Cristianriosrivas" target="_blank" class="text-sm font-semibold text-cyan-400 hover:underline">Ver en GitHub →</a>
+        </div>
+      </div>
+
+      <!-- Tu Guía Inteligente -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-cyan-500/50 transition flex flex-col justify-between">
+        <div>
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="text-xl font-bold text-slate-100">Tu Guía Inteligente</h3>
+            <span class="text-xs bg-amber-950 text-amber-300 border border-amber-800 px-2 py-1 rounded">Ecosistema PMV</span>
+          </div>
+          <p class="text-slate-400 text-sm mb-4">
+            Plataforma turística para Buenaventura que integra geolocalización, traducción automática ES/EN y Chatbot asistido por IA para impulsar más de 50 comercios locales.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">React / Vue</span>
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">Node.js</span>
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">OpenAI API</span>
+            <span class="text-xs font-mono bg-slate-800 text-cyan-400 px-2 py-1 rounded">Google Maps</span>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <a href="https://github.com/Cristianriosrivas" target="_blank" class="text-sm font-semibold text-cyan-400 hover:underline">Ver en GitHub →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA FREELANCE -->
+  <section id="experiencia" class="py-20 px-6 max-w-6xl mx-auto border-t border-slate-900">
+    <h2 class="text-3xl font-bold mb-8 text-slate-100 flex items-center gap-3">
+      <span class="text-cyan-400">02.</span> Soluciones Comerciales
+    </h2>
+    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-8">
+      <h3 class="text-xl font-bold text-slate-100 mb-2">Desarrollador de Soluciones Digitales (Freelance)</h3>
+      <p class="text-cyan-400 text-sm mb-6">Comercio Local & Pymes</p>
+      <ul class="list-disc list-inside text-slate-400 space-y-3">
+        <li>Diseño y desarrollo de sitios web personalizados y landing pages orientadas a conversión.</li>
+        <li>Implementación de sistemas de facturación digital, catálogos interactivos y menús QR para establecimientos comerciales.</li>
+        <li>Integración de soluciones digitales rápidas para modernizar operaciones de pequeños y medianos negocios.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ Y STACK -->
+  <section id="sobre-mi" class="py-20 px-6 max-w-6xl mx-auto border-t border-slate-900">
+    <h2 class="text-3xl font-bold mb-8 text-slate-100 flex items-center gap-3">
+      <span class="text-cyan-400">03.</span> Sobre Mí & Stack Tecnológico
+    </h2>
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-slate-400 leading-relaxed mb-4">
+          Como Tecnólogo en Desarrollo de Software y Scrum Master Certificado, combino el pensamiento estructurado del diseño de software con la agilidad en la gestión de producto.
+        </p>
+        <p class="text-slate-400 leading-relaxed mb-6">
+          Mi enfoque se centra en construir soluciones que no solo funcionen a nivel técnico, sino que generen valor real al usuario final y a los objetivos estratégicos del negocio.
+        </p>
+        <div class="flex gap-4">
+          <a href="https://github.com/Cristianriosrivas" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:border-cyan-400 text-sm font-semibold text-slate-200 transition">
+            Explorar mis repositorios en GitHub →
+          </a>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <div>
+          <h4 class="text-sm font-semibold text-cyan-400 mb-2">Frontend & UI/UX</h4>
+          <p class="text-slate-300 text-sm">JavaScript (ES6+), Vue.js 3, React.js, Tailwind CSS, HTML5/CSS3, Figma, Responsive Design</p>
+        </div>
+        <div>
+          <h4 class="text-sm font-semibold text-cyan-400 mb-2">Backend, IA & Datos</h4>
+          <p class="text-slate-300 text-sm">Python, Node.js, FastAPI, RAG, LangChain, Cohere, FAISS, Streamlit, PostgreSQL, MongoDB, Firebase</p>
+        </div>
+        <div>
+          <h4 class="text-sm font-semibold text-cyan-400 mb-2">Metodologías & Producto</h4>
+          <p class="text-slate-300 text-sm">Scrum Framework (CSM), Product Management, Backlog Prioritization, Git/GitHub</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER & CONTACTO -->
+  <footer id="contacto" class="py-16 px-6 border-t border-slate-900 text-center">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-3xl font-bold text-slate-100 mb-4 font-sans">¿Construimos algo juntos?</h2>
+      <p class="text-slate-400 mb-8">
+        Estoy disponible para oportunidades laborales Full Stack, roles de IA/Python o proyectos de gestión ágil.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <!-- BOTÓN GMAIL DIRECTO -->
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cristiandavidriosrivas@gmail.com&su=Contacto%20desde%20Portafolio%20Web" target="_blank" class="px-6 py-3 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold transition shadow-lg shadow-cyan-500/20">
+          Enviar Correo por Gmail
+        </a>
+        <a href="https://linkedin.com/in/cristian-david-rios-rivas-998b383b7" target="_blank" class="px-6 py-3 rounded-lg border border-slate-700 hover:border-slate-500 text-slate-300 font-semibold transition">
+          LinkedIn
+        </a>
+        <a href="https://github.com/Cristianriosrivas" target="_blank" class="px-6 py-3 rounded-lg border border-slate-700 hover:border-slate-500 text-slate-300 font-semibold transition">
+          GitHub
+        </a>
+      </div>
+      <p class="text-xs text-slate-600">
+        © 2026 Cristian David Rios. Diseñado con HTML5 & Tailwind CSS.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
