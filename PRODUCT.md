@@ -23,7 +23,7 @@ El portafolio de Cristian David Rios Rivas: mostrar que construye productos web 
 
 ## Positioning
 
-Desarrollador de Buenaventura, en el Pacífico colombiano, que publica productos reales con IA aplicada y presenta cada uno con un video promocional propio (voz, subtítulos ES/EN y música original). Ninguna otra hoja de vida junior trae los productos funcionando y contados en video.
+Desarrollador frontend y mobile que publica productos reales con IA aplicada y presenta cada uno con un video promocional propio (voz, subtítulos ES/EN y música original). Ninguna otra hoja de vida junior trae los productos funcionando y contados en video.
 
 ## Operating Context
 
@@ -45,6 +45,8 @@ Desarrollador de Buenaventura, en el Pacífico colombiano, que publica productos
 
 - Nombre público: Cristian David Rios (completo: Cristian David Rios Rivas). Marca corta del portafolio anterior: "CR.dev". *(inferido; se puede cambiar)*
 - Todo en español.
+- Identidad profesional, neutra y del mundo del software (pedido de Cristian, 19 nov 2026). Buenaventura y el Pacífico pueden aparecer como dato de ubicación, pero no son la identidad visual: nada de cartas náuticas, mar, ballenas ni motivos regionales como tema del sitio.
+- Preferencia de Cristian (19 nov 2026): el formato estándar de un portafolio profesional de desarrollador, bien ejecutado, «con un toque de diseño e innovación y que se vea profesional». Barra de oficio: sitios de producto de software como Linear, Vercel y Stripe. *(los productos de referencia son inferidos)*
 - Todo el código y los commits salen a nombre de Cristian, sin coautores.
 
 ## Evidence on Hand
@@ -58,7 +60,7 @@ Desarrollador de Buenaventura, en el Pacífico colombiano, que publica productos
 
 1. Mostrar antes que contar: cada proyecto se ve funcionando (video o demo) antes de su descripción.
 2. Verdad sobre el rol: decir qué hizo Cristian en cada proyecto, sin inflarlo.
-3. Raíz en el Pacífico: Buenaventura es parte de la identidad, no un adorno.
+3. Profesional y neutro: el oficio de software es la identidad; el lugar es un dato.
 4. Rápido de leer para quien contrata: rol buscado, CV y contacto siempre a un clic.
 
 ## Accessibility & Inclusion

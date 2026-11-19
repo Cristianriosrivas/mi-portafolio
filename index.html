@@ -4,14 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Cristian David Rios · Desarrollador Frontend y Mobile</title>
-  <meta name="description" content="Portafolio de Cristian David Rios Rivas, desarrollador frontend y mobile de Buenaventura. MediFlow, Finnets, English Buddy y Tu Guía Inteligente, cada uno contado en video. React, React Native, TypeScript, IA aplicada y Scrum." />
+  <meta name="description" content="Portafolio de Cristian David Rios Rivas, desarrollador frontend y mobile. MediFlow, Finnets, English Buddy y Tu Guía Inteligente, cada uno contado en video. React, React Native, TypeScript, IA aplicada y Scrum." />
   <meta name="author" content="Cristian David Rios Rivas" />
-  <meta name="theme-color" content="#f8f9f7" />
+  <meta name="theme-color" content="#f8f9fb" />
   <link rel="canonical" href="https://mi-portafoliocristianrios.vercel.app/" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_CO" />
-  <meta property="og:title" content="Cristian David Rios · Carta de proyectos" />
-  <meta property="og:description" content="Desarrollador frontend y mobile de Buenaventura. Productos web y móviles de la idea a producción, contados en video." />
+  <meta property="og:title" content="Cristian David Rios · Desarrollador Frontend y Mobile" />
+  <meta property="og:description" content="Productos web y móviles de la idea a producción, con IA aplicada. Cada proyecto, contado en video." />
   <meta property="og:url" content="https://mi-portafoliocristianrios.vercel.app/" />
   <meta property="og:image" content="https://mi-portafoliocristianrios.vercel.app/assets/img/compartir.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -20,8 +20,8 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..900;1,62..125,300..900&display=swap" />
-  <link rel="stylesheet" href="assets/css/carta.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400..600&display=swap" />
+  <link rel="stylesheet" href="assets/css/estilos.css" />
   <link rel="modulepreload" href="assets/js/main.js" />
   <script type="importmap">
     { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.min.js" } }
@@ -30,34 +30,27 @@
 </head>
 <body>
   <svg class="sprite" aria-hidden="true" focusable="false">
-    <symbol id="i-luz" viewBox="0 0 24 24"><path d="M12 22.2c-.9-3.6-5.6-7.9-5.6-12.4a5.6 5.6 0 0 1 11.2 0c0 4.5-4.7 8.8-5.6 12.4Z" fill="currentColor"/><circle cx="12" cy="9.6" r="2.1" fill="var(--papel)"/></symbol>
     <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.2v13.6a.8.8 0 0 0 1.2.7l10.6-6.8a.8.8 0 0 0 0-1.4L9.2 4.5A.8.8 0 0 0 8 5.2Z" fill="currentColor"/></symbol>
-    <symbol id="i-pausa" viewBox="0 0 24 24"><rect x="6.5" y="5" width="3.8" height="14" rx=".8" fill="currentColor"/><rect x="13.7" y="5" width="3.8" height="14" rx=".8" fill="currentColor"/></symbol>
+    <symbol id="i-pausa" viewBox="0 0 24 24"><rect x="6.5" y="5" width="3.8" height="14" rx="1" fill="currentColor"/><rect x="13.7" y="5" width="3.8" height="14" rx="1" fill="currentColor"/></symbol>
     <symbol id="i-sonido" viewBox="0 0 24 24"><path d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z" fill="currentColor"/><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.8 7.8 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
     <symbol id="i-mudo" viewBox="0 0 24 24"><path d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z" fill="currentColor"/><path d="m15.5 9.5 5 5m0-5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
     <symbol id="i-ampliar" viewBox="0 0 24 24"><path d="M4.5 9V4.5H9M15 4.5h4.5V9M19.5 15v4.5H15M9 19.5H4.5V15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-cerrar" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
     <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-abajo" viewBox="0 0 24 24"><path d="M12 5v14m-6-6 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-descarga" viewBox="0 0 24 24"><path d="M12 4v11m-4.5-4.5L12 15l4.5-4.5M5 19.5h14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-copiar" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 5.5v-.3a.7.7 0 0 0-.7-.7H5.2a.7.7 0 0 0-.7.7v9.6a.7.7 0 0 0 .7.7h.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
-    <symbol id="i-rumbo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m12 4.6 2.3 7.4L12 19.4 9.7 12Z" fill="currentColor"/><path d="M12 1.5v2M12 20.5v2M1.5 12h2M20.5 12h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-copiar" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 5.5v-.3a.7.7 0 0 0-.7-.7H5.2a.7.7 0 0 0-.7.7v9.6a.7.7 0 0 0 .7.7h.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-correo" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4.5 7 7.5 6 7.5-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 2.8a9.2 9.2 0 0 0-2.9 17.9c.46.08.63-.2.63-.44v-1.6c-2.56.56-3.1-1.1-3.1-1.1-.42-1.06-1.02-1.35-1.02-1.35-.84-.57.06-.56.06-.56.93.07 1.42.95 1.42.95.82 1.41 2.16 1 2.69.77.08-.6.32-1 .58-1.23-2.04-.23-4.19-1.02-4.19-4.55 0-1 .36-1.83.95-2.47-.1-.23-.41-1.17.09-2.43 0 0 .77-.25 2.53.94a8.8 8.8 0 0 1 4.6 0c1.76-1.19 2.53-.94 2.53-.94.5 1.26.19 2.2.09 2.43.59.64.95 1.46.95 2.47 0 3.54-2.16 4.32-4.21 4.55.33.29.62.85.62 1.71v2.54c0 .25.17.53.64.44A9.2 9.2 0 0 0 12 2.8Z" fill="currentColor"/></symbol>
+    <symbol id="i-buscar" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="m16 16 4 4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 10.5v6M8 7.6v.1M11.5 16.5v-6m0 2.6c0-1.6 1-2.7 2.4-2.7 1.4 0 2.1 1 2.1 2.6v3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
   </svg>
 
   <a class="saltar" href="#proyectos">Saltar a los proyectos</a>
 
-  <!-- La carta en 3D vive detrás de todo el contenido. -->
-  <canvas id="carta" aria-hidden="true"></canvas>
-  <div id="senales" class="senales" aria-hidden="true"></div>
-
-  <div class="marco" aria-hidden="true">
-    <div class="marco-borde marco-izq"><span style="top: 22%">3°57′N</span><span style="top: 50%">3°53′N</span><span style="top: 78%">3°49′N</span></div>
-    <div class="marco-borde marco-der"></div>
-    <div class="marco-borde marco-abajo"><span>77°16′W</span><span>77°12′W</span><span>77°08′W</span><span>77°04′W</span><span>77°00′W</span></div>
-  </div>
-
-  <header class="barra">
+  <header class="barra" id="barra">
     <a class="marca" href="#inicio" aria-label="Cristian David Rios, inicio">
-      <svg class="marca-luz" aria-hidden="true"><use href="#i-luz" /></svg>
+      <span class="marca-sello" aria-hidden="true">CR</span>
       <span class="marca-texto">Cristian Rios</span>
     </a>
     <nav class="menu" aria-label="Secciones">
@@ -66,66 +59,70 @@
       <a href="#certificados">Certificados</a>
       <a href="#contacto">Contacto</a>
     </nav>
-    <a class="boton boton-cv" href="Cristian_Rios_CV.pdf" download>
+    <button class="buscar" type="button" id="abrir-paleta" aria-label="Buscar en el portafolio (Ctrl+K)" aria-keyshortcuts="Control+K Meta+K">
+      <svg aria-hidden="true"><use href="#i-buscar" /></svg><span class="buscar-texto">Buscar</span><kbd>Ctrl K</kbd>
+    </button>
+    <a class="boton boton-chico boton-linea barra-cv" href="Cristian_Rios_CV.pdf" download>
       <svg aria-hidden="true"><use href="#i-descarga" /></svg>CV
     </a>
   </header>
 
   <main id="contenido">
     <!-- PORTADA -->
-    <section id="inicio" class="portada" data-pose="inicio" aria-labelledby="nombre">
-      <div class="cartucho">
-        <h1 id="nombre"><span>Cristian</span> <span>David Rios</span></h1>
-        <p class="cartucho-rol">Desarrollador Frontend y Mobile · Product Owner Junior</p>
-        <p class="cartucho-texto">Construyo productos web y móviles de principio a fin: entiendo el problema, defino qué se construye, lo desarrollo y lo pongo en producción. Desde Buenaventura, en el Pacífico colombiano.</p>
+    <section id="inicio" class="portada" aria-labelledby="nombre">
+      <div class="portada-texto">
+        <h1 id="nombre">Cristian David&nbsp;Rios</h1>
+        <p class="portada-rol">Desarrollador Frontend y Mobile <span aria-hidden="true">·</span> Product Owner Junior</p>
+        <p class="portada-valor">Construyo productos web y móviles de principio a fin: entiendo el problema, defino qué se construye, lo desarrollo y lo pongo en producción. React, React Native, TypeScript e IA aplicada.</p>
+        <p class="estado"><span class="estado-punto" aria-hidden="true"></span>Disponible para prácticas y primer empleo</p>
         <div class="acciones">
-          <a class="boton boton-tinta" href="#proyectos">Ver los proyectos</a>
+          <a class="boton boton-tinta" href="#proyectos">Ver proyectos<svg aria-hidden="true"><use href="#i-abajo" /></svg></a>
           <a class="boton boton-linea" href="Cristian_Rios_CV.pdf" download><svg aria-hidden="true"><use href="#i-descarga" /></svg>Descargar CV</a>
         </div>
-        <p class="cartucho-pie">Tecnología en Desarrollo de Software, Universidad del Valle · ONE AI for Tech (262 h) · Oracle OCI AI Foundations Associate</p>
+        <ul class="credenciales" aria-label="Formación y certificaciones">
+          <li>Tecnología en Desarrollo de Software · Universidad del Valle</li>
+          <li>ONE AI for Tech · Oracle y Alura</li>
+          <li>Oracle OCI AI Foundations Associate</li>
+        </ul>
       </div>
 
-      <form class="trazador" id="trazador" role="search" aria-labelledby="trazador-titulo">
-        <h2 id="trazador-titulo" class="trazador-titulo"><svg aria-hidden="true"><use href="#i-rumbo" /></svg>Trazar rumbo</h2>
-        <p class="trazador-ayuda">Elige una habilidad y la carta une los proyectos donde la usé.</p>
-        <div class="fichas" id="fichas" role="group" aria-label="Habilidades"></div>
-        <div class="trazador-campo">
-          <label for="rumbo-libre" class="oculto">Escribe una habilidad</label>
-          <input id="rumbo-libre" name="rumbo" type="text" autocomplete="off" spellcheck="false" placeholder="O escribe una: RAG, Expo, Supabase…" />
-          <button class="boton boton-tinta boton-chico" type="submit">Trazar</button>
+      <figure class="mapa" aria-labelledby="mapa-titulo">
+        <figcaption class="mapa-cabeza">
+          <span id="mapa-titulo">Mapa de habilidades</span>
+          <span class="mapa-ayuda">10 proyectos · 13 tecnologías · arrastra para girar</span>
+        </figcaption>
+        <div class="mapa-lienzo" id="mapa-lienzo">
+          <canvas id="grafo" aria-hidden="true"></canvas>
+          <div class="mapa-etiquetas" id="mapa-etiquetas" aria-hidden="true"></div>
         </div>
-        <p class="trazador-salida" id="trazador-salida" aria-live="polite"></p>
-      </form>
-
-      <a class="pista" href="#proyectos" aria-label="Bajar a los proyectos"><span>Proyectos</span><svg aria-hidden="true"><use href="#i-flecha" /></svg></a>
+        <div class="filtro">
+          <div class="fichas" id="fichas" role="group" aria-label="Filtrar proyectos por habilidad"></div>
+          <p class="filtro-salida" id="filtro-salida" aria-live="polite">Elige una habilidad para ver qué proyectos la usan.</p>
+        </div>
+      </figure>
     </section>
 
-    <!-- PROYECTOS EN VIDEO -->
-    <section id="proyectos" class="seccion planos" aria-labelledby="titulo-proyectos">
-      <div class="lamina lamina-titulo">
-        <h2 id="titulo-proyectos" class="titulo">Proyectos</h2>
-        <p class="entrada">Cuatro productos publicados. Cada uno tiene su video, con voz, subtítulos en español e inglés y música original hecha para él.</p>
+    <!-- PROYECTOS DESTACADOS -->
+    <section id="proyectos" class="seccion" aria-labelledby="titulo-proyectos">
+      <div class="seccion-cabeza">
+        <h2 id="titulo-proyectos">Proyectos destacados</h2>
+        <p>Cuatro productos publicados. Cada uno tiene su video, con voz en español, subtítulos en español e inglés y música original hecha para él.</p>
       </div>
 
-      <article class="plano" id="p-mediflow" data-pose="mediflow" data-lado="izq" aria-labelledby="t-mediflow">
-        <figure class="inserto">
-          <figcaption class="inserto-cabeza"><span class="inserto-letra">A</span><span class="inserto-nombre">MediFlow · plano de detalle</span><span class="inserto-pos">3°54′N 77°10′W</span></figcaption>
-          <div class="inserto-video">
-            <video class="avance" muted loop playsinline preload="none" poster="assets/img/mediflow.jpg" data-src="assets/video/mediflow-avance.mp4" aria-hidden="true"></video>
-            <button class="ver-video" type="button" data-video="mediflow" data-titulo="MediFlow" data-duracion="1:24">
-              <svg aria-hidden="true"><use href="#i-play" /></svg><span>Ver el video <span class="duracion">1:24</span></span>
-            </button>
-          </div>
-          <div class="inserto-pie"><div class="escala" aria-hidden="true"><i></i></div><span class="inserto-dato"><b>Luz</b> Fl(2) 6s</span><span class="inserto-dato">Voz en español · subtítulos ES y EN</span></div>
-        </figure>
-        <div class="ficha">
-          <div class="ficha-a">
+      <article class="proyecto" id="p-mediflow" data-proyecto="mediflow" aria-labelledby="t-mediflow">
+        <div class="medio">
+          <video class="avance" muted loop playsinline preload="none" poster="assets/img/mediflow.jpg" data-src="assets/video/mediflow-avance.mp4" aria-hidden="true"></video>
+          <button class="ver-video" type="button" data-video="mediflow" data-titulo="MediFlow" data-duracion="1:24"><svg aria-hidden="true"><use href="#i-play" /></svg>Ver video <span class="duracion">1:24</span></button>
+          <span class="medio-avance" aria-hidden="true"><i></i></span>
+        </div>
+        <div class="proyecto-texto">
           <h3 id="t-mediflow">MediFlow</h3>
-          <p class="ficha-titulo">Agente de triaje clínico</p>
-          <p class="ficha-contexto">Hackathon ONE G10 · No Country · sep–oct 2026 · equipo de 6</p>
+          <p class="proyecto-sub">Agente de triaje clínico con IA</p>
           <p>Clasifica documentos clínicos con IA, extrae sus datos, mide la confianza y la urgencia, y los enruta al área correcta con un grafo de decisión. Los casos dudosos pasan a revisión humana.</p>
-          </div>
-          <div class="ficha-b">
+          <dl class="ficha">
+            <div><dt>Contexto</dt><dd>Hackathon ONE G10 · No Country</dd></div>
+            <div><dt>Equipo</dt><dd>6 personas · sep–oct 2026</dd></div>
+          </dl>
           <h4>Lo que hice</h4>
           <ul class="hice">
             <li>El frontend en React, TypeScript y Tailwind CSS, con vistas según el rol de cada usuario.</li>
@@ -134,32 +131,26 @@
           </ul>
           <ul class="pila" aria-label="Tecnologías"><li>React</li><li>TypeScript</li><li>Tailwind CSS</li><li>FastAPI</li><li>LangGraph</li><li>Gemini</li><li>Spring Boot</li><li>pytest</li></ul>
           <p class="enlaces">
-            <a class="boton boton-tinta" href="https://mediflow-frontend-wheat.vercel.app/" target="_blank" rel="noopener">Abrir la demo<svg aria-hidden="true"><use href="#i-flecha" /></svg></a>
+            <a class="boton boton-tinta boton-chico" href="https://mediflow-frontend-wheat.vercel.app/" target="_blank" rel="noopener">Abrir la demo<svg aria-hidden="true"><use href="#i-flecha" /></svg></a>
             <a class="enlace" href="https://github.com/No-Country-simulation/mediflow-g10-latam-equipo13" target="_blank" rel="noopener">Código del equipo</a>
           </p>
-          </div>
         </div>
       </article>
 
-      <article class="plano" id="p-finnets" data-pose="finnets" data-lado="der" aria-labelledby="t-finnets">
-        <figure class="inserto">
-          <figcaption class="inserto-cabeza"><span class="inserto-letra">B</span><span class="inserto-nombre">Finnets · plano de detalle</span><span class="inserto-pos">3°54′N 77°06′W</span></figcaption>
-          <div class="inserto-video">
-            <video class="avance" muted loop playsinline preload="none" poster="assets/img/finnets.jpg" data-src="assets/video/finnets-avance.mp4" aria-hidden="true"></video>
-            <button class="ver-video" type="button" data-video="finnets" data-titulo="Finnets" data-duracion="1:06">
-              <svg aria-hidden="true"><use href="#i-play" /></svg><span>Ver el video <span class="duracion">1:06</span></span>
-            </button>
-          </div>
-          <div class="inserto-pie"><div class="escala" aria-hidden="true"><i></i></div><span class="inserto-dato"><b>Luz</b> Q 1s</span><span class="inserto-dato">Voz en español · subtítulos ES y EN</span></div>
-        </figure>
-        <div class="ficha">
-          <div class="ficha-a">
+      <article class="proyecto proyecto-inverso" id="p-finnets" data-proyecto="finnets" aria-labelledby="t-finnets">
+        <div class="medio">
+          <video class="avance" muted loop playsinline preload="none" poster="assets/img/finnets.jpg" data-src="assets/video/finnets-avance.mp4" aria-hidden="true"></video>
+          <button class="ver-video" type="button" data-video="finnets" data-titulo="Finnets" data-duracion="1:06"><svg aria-hidden="true"><use href="#i-play" /></svg>Ver video <span class="duracion">1:06</span></button>
+          <span class="medio-avance" aria-hidden="true"><i></i></span>
+        </div>
+        <div class="proyecto-texto">
           <h3 id="t-finnets">Finnets</h3>
-          <p class="ficha-titulo">Entrenamiento físico, web y móvil</p>
-          <p class="ficha-contexto">Proyecto propio · octubre 2026 – hoy</p>
+          <p class="proyecto-sub">Entrenamiento físico, web y móvil</p>
           <p>Rutinas y planes de comida generados con IA, registro de entrenamientos con 1RM estimado, mapa muscular en 3D con la recuperación de cada grupo, modo carrera con GPS, logros y un resumen mensual para compartir.</p>
-          </div>
-          <div class="ficha-b">
+          <dl class="ficha">
+            <div><dt>Contexto</dt><dd>Proyecto propio</dd></div>
+            <div><dt>Fecha</dt><dd>octubre 2026 – hoy</dd></div>
+          </dl>
           <h4>Lo que hice</h4>
           <ul class="hice">
             <li>La app móvil en React Native con Expo y la web en Next.js, que comparten la misma lógica.</li>
@@ -168,33 +159,27 @@
           </ul>
           <ul class="pila" aria-label="Tecnologías"><li>React Native</li><li>Expo</li><li>Next.js</li><li>TypeScript</li><li>Supabase</li><li>PostgreSQL</li><li>Gemini</li></ul>
           <p class="enlaces">
-            <a class="boton boton-tinta" href="https://fitnnets.vercel.app" target="_blank" rel="noopener">Abrir la app<svg aria-hidden="true"><use href="#i-flecha" /></svg></a>
+            <a class="boton boton-tinta boton-chico" href="https://fitnnets.vercel.app" target="_blank" rel="noopener">Abrir la app<svg aria-hidden="true"><use href="#i-flecha" /></svg></a>
             <a class="enlace" href="https://github.com/Cristianriosrivas/fitnnets-mobile" target="_blank" rel="noopener">Código móvil</a>
             <a class="enlace" href="https://github.com/Cristianriosrivas/fitnnets" target="_blank" rel="noopener">Código web</a>
           </p>
-          </div>
         </div>
       </article>
 
-      <article class="plano" id="p-english-buddy" data-pose="english-buddy" data-lado="izq" aria-labelledby="t-english-buddy">
-        <figure class="inserto">
-          <figcaption class="inserto-cabeza"><span class="inserto-letra">C</span><span class="inserto-nombre">English Buddy · plano de detalle</span><span class="inserto-pos">3°50′N 77°02′W</span></figcaption>
-          <div class="inserto-video">
-            <video class="avance" muted loop playsinline preload="none" poster="assets/img/english-buddy.jpg" data-src="assets/video/english-buddy-avance.mp4" aria-hidden="true"></video>
-            <button class="ver-video" type="button" data-video="english-buddy" data-titulo="English Buddy" data-duracion="0:54">
-              <svg aria-hidden="true"><use href="#i-play" /></svg><span>Ver el video <span class="duracion">0:54</span></span>
-            </button>
-          </div>
-          <div class="inserto-pie"><div class="escala" aria-hidden="true"><i></i></div><span class="inserto-dato"><b>Luz</b> Oc 4s</span><span class="inserto-dato">Voz en español · subtítulos ES y EN</span></div>
-        </figure>
-        <div class="ficha">
-          <div class="ficha-a">
+      <article class="proyecto" id="p-english-buddy" data-proyecto="english-buddy" aria-labelledby="t-english-buddy">
+        <div class="medio">
+          <video class="avance" muted loop playsinline preload="none" poster="assets/img/english-buddy.jpg" data-src="assets/video/english-buddy-avance.mp4" aria-hidden="true"></video>
+          <button class="ver-video" type="button" data-video="english-buddy" data-titulo="English Buddy" data-duracion="0:54"><svg aria-hidden="true"><use href="#i-play" /></svg>Ver video <span class="duracion">0:54</span></button>
+          <span class="medio-avance" aria-hidden="true"><i></i></span>
+        </div>
+        <div class="proyecto-texto">
           <h3 id="t-english-buddy">English Buddy</h3>
-          <p class="ficha-titulo">Agente de IA para practicar inglés</p>
-          <p class="ficha-contexto">Proyecto propio · noviembre 2026</p>
+          <p class="proyecto-sub">Agente de IA para practicar inglés</p>
           <p>Conversaciones por texto y por voz con una IA que se adapta a tu nivel, 10 temas guiados, 25 lecciones con la escritura corregida por IA y una página de progreso. Se instala en el celular como una app.</p>
-          </div>
-          <div class="ficha-b">
+          <dl class="ficha">
+            <div><dt>Contexto</dt><dd>Proyecto propio</dd></div>
+            <div><dt>Fecha</dt><dd>noviembre 2026</dd></div>
+          </dl>
           <h4>Lo que hice</h4>
           <ul class="hice">
             <li>Next.js con App Router, TypeScript y Tailwind CSS sobre Supabase, con inicio de sesión y perfil por nivel.</li>
@@ -203,238 +188,246 @@
           </ul>
           <ul class="pila" aria-label="Tecnologías"><li>Next.js</li><li>TypeScript</li><li>Tailwind CSS</li><li>Supabase</li><li>Groq</li><li>Gemini</li><li>Web Speech API</li><li>PWA</li></ul>
           <p class="enlaces">
-            <a class="boton boton-tinta" href="https://english-buddy-six-drab.vercel.app" target="_blank" rel="noopener">Abrir la app<svg aria-hidden="true"><use href="#i-flecha" /></svg></a>
+            <a class="boton boton-tinta boton-chico" href="https://english-buddy-six-drab.vercel.app" target="_blank" rel="noopener">Abrir la app<svg aria-hidden="true"><use href="#i-flecha" /></svg></a>
             <a class="enlace" href="https://github.com/Cristianriosrivas/english-buddy" target="_blank" rel="noopener">Código</a>
           </p>
-          </div>
         </div>
       </article>
 
-      <article class="plano" id="p-tu-guia" data-pose="tu-guia" data-lado="der" aria-labelledby="t-tu-guia">
-        <figure class="inserto">
-          <figcaption class="inserto-cabeza"><span class="inserto-letra">D</span><span class="inserto-nombre">Tu Guía Inteligente · plano de detalle</span><span class="inserto-pos">3°53′N 77°03′W</span></figcaption>
-          <div class="inserto-video">
-            <video class="avance" muted loop playsinline preload="none" poster="assets/img/tu-guia.jpg" data-src="assets/video/tu-guia-avance.mp4" aria-hidden="true"></video>
-            <button class="ver-video" type="button" data-video="tu-guia" data-titulo="Tu Guía Inteligente" data-duracion="1:08">
-              <svg aria-hidden="true"><use href="#i-play" /></svg><span>Ver el video <span class="duracion">1:08</span></span>
-            </button>
-          </div>
-          <div class="inserto-pie"><div class="escala" aria-hidden="true"><i></i></div><span class="inserto-dato"><b>Luz</b> Iso 2s</span><span class="inserto-dato">Voz en español · subtítulos ES y EN</span></div>
-        </figure>
-        <div class="ficha">
-          <div class="ficha-a">
+      <article class="proyecto proyecto-inverso" id="p-tu-guia" data-proyecto="tu-guia" aria-labelledby="t-tu-guia">
+        <div class="medio">
+          <video class="avance" muted loop playsinline preload="none" poster="assets/img/tu-guia.jpg" data-src="assets/video/tu-guia-avance.mp4" aria-hidden="true"></video>
+          <button class="ver-video" type="button" data-video="tu-guia" data-titulo="Tu Guía Inteligente" data-duracion="1:08"><svg aria-hidden="true"><use href="#i-play" /></svg>Ver video <span class="duracion">1:08</span></button>
+          <span class="medio-avance" aria-hidden="true"><i></i></span>
+        </div>
+        <div class="proyecto-texto">
           <h3 id="t-tu-guia">Tu Guía Inteligente</h3>
-          <p class="ficha-titulo">La guía turística de Buenaventura</p>
-          <p class="ficha-contexto">Proyecto propio · noviembre 2026</p>
-          <p>El mar de hoy en vivo (marea, oleaje, temperatura del agua y atardecer), 13 lugares reales con fotos, mapa y cómo llegar en lancha, rutas, sabores del Pacífico y un planificador que arma el viaje por días.</p>
-          </div>
-          <div class="ficha-b">
+          <p class="proyecto-sub">Guía turística de Buenaventura con planificador de viajes</p>
+          <p>Condiciones del mar en vivo (marea, oleaje, temperatura del agua y atardecer), 13 lugares con fotos, mapa e indicaciones de llegada, rutas, gastronomía y un planificador que arma el viaje por días.</p>
+          <dl class="ficha">
+            <div><dt>Contexto</dt><dd>Proyecto propio</dd></div>
+            <div><dt>Fecha</dt><dd>noviembre 2026</dd></div>
+          </dl>
           <h4>Lo que hice</h4>
           <ul class="hice">
-            <li>La portada en React, TypeScript y Three.js, con una ballena en 3D que salta entre las letras.</li>
+            <li>La interfaz en React, TypeScript y Three.js, con una animación 3D en la portada.</li>
             <li>El planificador por zonas, horarios, hospedaje y costos, que exporta el plan a imagen, calendario o enlace.</li>
             <li>La guía virtual, con IA opcional (Gemini a través de un proxy en Supabase), publicada gratis en GitHub Pages.</li>
           </ul>
           <ul class="pila" aria-label="Tecnologías"><li>React</li><li>TypeScript</li><li>Three.js</li><li>Vite</li><li>Leaflet</li><li>Open-Meteo</li><li>Gemini</li><li>Supabase</li></ul>
           <p class="enlaces">
-            <a class="boton boton-tinta" href="https://cristianriosrivas.github.io/Tu-Guia-Inteligente-buenaventura/" target="_blank" rel="noopener">Abrir la guía<svg aria-hidden="true"><use href="#i-flecha" /></svg></a>
+            <a class="boton boton-tinta boton-chico" href="https://cristianriosrivas.github.io/Tu-Guia-Inteligente-buenaventura/" target="_blank" rel="noopener">Abrir la guía<svg aria-hidden="true"><use href="#i-flecha" /></svg></a>
             <a class="enlace" href="https://github.com/Cristianriosrivas/Tu-Guia-Inteligente-buenaventura" target="_blank" rel="noopener">Código</a>
           </p>
-          </div>
         </div>
       </article>
     </section>
 
-    <!-- LISTA DE LUCES: los demás proyectos -->
-    <section id="mas-proyectos" class="seccion" data-pose="lista" aria-labelledby="titulo-luces">
-      <div class="lamina">
-        <h2 id="titulo-luces" class="titulo">Lista de luces</h2>
-        <p class="entrada">Más proyectos, del más reciente al más antiguo. Cada uno tiene su luz en la carta.</p>
-        <table class="luces">
-          <thead>
-            <tr><th scope="col">Nº</th><th scope="col">Proyecto</th><th scope="col">Qué hace</th><th scope="col">Con qué</th><th scope="col">Año</th><th scope="col"><span class="oculto">Enlaces</span></th></tr>
-          </thead>
-          <tbody id="luces-cuerpo">
-            <tr id="luz-gestor-rutas" data-luz="gestor-rutas">
-              <td class="luz-num"><span>1</span></td>
-              <th scope="row"><span class="luz-nombre">Gestor de Rutas de Transporte</span><span class="luz-nota">Univalle · Análisis y Diseño de Algoritmos</span></th>
-              <td>La red de transporte de Buenaventura como grafo, con 4429 cruces y 5765 tramos reales de OpenStreetMap. Compara BFS, DFS, Dijkstra y A* con estructuras de datos propias y un visualizador paso a paso.</td>
-              <td class="luz-pila">React · TypeScript · Vite · Vitest</td>
-              <td class="luz-anio">2026</td>
-              <td class="luz-enlaces"><a href="https://gestor-rutas-ada.cristian-david-rios.workers.dev" target="_blank" rel="noopener">Abrir</a><a href="https://github.com/Cristianriosrivas/Proyecto_ADA" target="_blank" rel="noopener">Código</a></td>
-            </tr>
-            <tr id="luz-asistente-univalle" data-luz="asistente-univalle">
-              <td class="luz-num"><span>2</span></td>
-              <th scope="row"><span class="luz-nombre">Asistente virtual de la Univalle</span><span class="luz-nota">Prototipo académico independiente</span></th>
-              <td>Responde a aspirantes y estudiantes sobre admisiones, matrícula y reglamento, y dice de qué norma o página oficial sale cada respuesta. Tiene panel para funcionarios y casi 200 pruebas automáticas.</td>
-              <td class="luz-pila">Python · FastAPI · SQLite · BM25 y vectores · Streamlit</td>
-              <td class="luz-anio">2026</td>
-              <td class="luz-enlaces"><a href="https://reglamento-univalle-ia-d2u6pdect5emm4nbc9hkxe.streamlit.app/" target="_blank" rel="noopener">Probar</a><a href="https://github.com/Cristianriosrivas/reglamento-univalle-ia" target="_blank" rel="noopener">Código</a></td>
-            </tr>
-            <tr id="luz-afro-univalluna" data-luz="afro-univalluna">
-              <td class="luz-num"><span>3</span></td>
-              <th scope="row"><span class="luz-nombre">Revista Afro Univalluna</span><span class="luz-nota">Universidad del Valle · trabajo pagado</span></th>
-              <td>Diseño y desarrollo del sitio web de la revista, de principio a fin, en Joomla.</td>
-              <td class="luz-pila">Joomla · Diseño web · UI/UX</td>
-              <td class="luz-anio">2026</td>
-              <td class="luz-enlaces"><span class="luz-pendiente">Por publicar</span></td>
-            </tr>
-            <tr id="luz-alza-tu-voz" data-luz="alza-tu-voz">
-              <td class="luz-num"><span>4</span></td>
-              <th scope="row"><span class="luz-nombre">Alza tu Voz</span><span class="luz-nota">Impacto social</span></th>
-              <td>Plataforma para denunciar de forma segura el acoso y la violencia, con recursos de apoyo, contenido multimedia e interacción en tiempo real.</td>
-              <td class="luz-pila">Vue 3 · FastAPI · PostgreSQL · WebSockets · Ollama</td>
-              <td class="luz-anio">2026</td>
-              <td class="luz-enlaces"><a href="https://alza-tu-voz.vercel.app/" target="_blank" rel="noopener">Abrir</a><a href="https://github.com/Cristianriosrivas/Alza_tu_voz" target="_blank" rel="noopener">Código</a></td>
-            </tr>
-            <tr id="luz-luminastore" data-luz="luminastore">
-              <td class="luz-num"><span>5</span></td>
-              <th scope="row"><span class="luz-nombre">Agente LuminaStore</span><span class="luz-nota">Challenge de Alura · Oracle Cloud</span></th>
-              <td>Asistente de soporte con arquitectura RAG que responde sobre las políticas de una tienda a partir de su PDF oficial, sin inventar respuestas.</td>
-              <td class="luz-pila">Python · LangChain · Cohere · FAISS · Streamlit · OCI</td>
-              <td class="luz-anio">2026</td>
-              <td class="luz-enlaces"><a href="https://luminastore-agente-ia-challenge-alura.streamlit.app/" target="_blank" rel="noopener">Probar</a><a href="https://github.com/Cristianriosrivas/luminastore-agente-ia" target="_blank" rel="noopener">Código</a></td>
-            </tr>
-            <tr id="luz-parqueapp" data-luz="parqueapp">
-              <td class="luz-num"><span>6</span></td>
-              <th scope="row"><span class="luz-nombre">ParqueApp</span><span class="luz-nota">Proyecto en equipo · frontend</span></th>
-              <td>Sistema web para buscar, reservar y gestionar parqueaderos, con mapas en tiempo real y roles de usuario. Trabajé en el frontend.</td>
-              <td class="luz-pila">Vue 3 · Tailwind CSS · Pinia · Firebase · Leaflet</td>
-              <td class="luz-anio">2025</td>
-              <td class="luz-enlaces"><a href="https://github.com/Cristianriosrivas/Parqueapp-frontend" target="_blank" rel="noopener">Código</a></td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- OTROS PROYECTOS -->
+    <section id="otros" class="seccion" aria-labelledby="titulo-otros">
+      <div class="seccion-cabeza">
+        <h2 id="titulo-otros">Otros proyectos</h2>
+        <p>Del más reciente al más antiguo.</p>
       </div>
+      <ol class="otros" id="lista-otros">
+        <li id="otro-gestor-rutas" data-proyecto="gestor-rutas">
+          <span class="otro-anio">2026</span>
+          <div class="otro-cuerpo">
+            <h3>Gestor de Rutas de Transporte <span>Universidad del Valle · Análisis y Diseño de Algoritmos</span></h3>
+            <p>La red de transporte de Buenaventura modelada como grafo, con 4429 cruces y 5765 tramos de OpenStreetMap. Compara BFS, DFS, Dijkstra y A* con estructuras de datos propias y un visualizador paso a paso.</p>
+            <p class="otro-pila">React · TypeScript · Vite · Vitest</p>
+          </div>
+          <p class="otro-enlaces"><a href="https://gestor-rutas-ada.cristian-david-rios.workers.dev" target="_blank" rel="noopener">Abrir<svg aria-hidden="true"><use href="#i-flecha" /></svg></a><a href="https://github.com/Cristianriosrivas/Proyecto_ADA" target="_blank" rel="noopener">Código<svg aria-hidden="true"><use href="#i-flecha" /></svg></a></p>
+        </li>
+        <li id="otro-asistente-univalle" data-proyecto="asistente-univalle">
+          <span class="otro-anio">2026</span>
+          <div class="otro-cuerpo">
+            <h3>Asistente virtual de la Univalle <span>Prototipo académico independiente</span></h3>
+            <p>Responde a aspirantes y estudiantes sobre admisiones, matrícula y reglamento, y dice de qué norma o página oficial sale cada respuesta. Tiene panel para funcionarios y casi 200 pruebas automáticas.</p>
+            <p class="otro-pila">Python · FastAPI · SQLite · BM25 y vectores · Streamlit</p>
+          </div>
+          <p class="otro-enlaces"><a href="https://reglamento-univalle-ia-d2u6pdect5emm4nbc9hkxe.streamlit.app/" target="_blank" rel="noopener">Probar<svg aria-hidden="true"><use href="#i-flecha" /></svg></a><a href="https://github.com/Cristianriosrivas/reglamento-univalle-ia" target="_blank" rel="noopener">Código<svg aria-hidden="true"><use href="#i-flecha" /></svg></a></p>
+        </li>
+        <li id="otro-afro-univalluna" data-proyecto="afro-univalluna">
+          <span class="otro-anio">2026</span>
+          <div class="otro-cuerpo">
+            <h3>Revista Afro Univalluna <span>Universidad del Valle · trabajo pagado</span></h3>
+            <p>Diseño y desarrollo del sitio web de la revista, de principio a fin, en Joomla.</p>
+            <p class="otro-pila">Joomla · Diseño web · UI/UX</p>
+          </div>
+          <p class="otro-enlaces"><span class="otro-pendiente">Por publicar</span></p>
+        </li>
+        <li id="otro-alza-tu-voz" data-proyecto="alza-tu-voz">
+          <span class="otro-anio">2026</span>
+          <div class="otro-cuerpo">
+            <h3>Alza tu Voz <span>Impacto social</span></h3>
+            <p>Plataforma para denunciar de forma segura el acoso y la violencia, con recursos de apoyo, contenido multimedia e interacción en tiempo real.</p>
+            <p class="otro-pila">Vue 3 · FastAPI · PostgreSQL · WebSockets · Ollama</p>
+          </div>
+          <p class="otro-enlaces"><a href="https://alza-tu-voz.vercel.app/" target="_blank" rel="noopener">Abrir<svg aria-hidden="true"><use href="#i-flecha" /></svg></a><a href="https://github.com/Cristianriosrivas/Alza_tu_voz" target="_blank" rel="noopener">Código<svg aria-hidden="true"><use href="#i-flecha" /></svg></a></p>
+        </li>
+        <li id="otro-luminastore" data-proyecto="luminastore">
+          <span class="otro-anio">2026</span>
+          <div class="otro-cuerpo">
+            <h3>Agente LuminaStore <span>Challenge de Alura · Oracle Cloud</span></h3>
+            <p>Asistente de soporte con arquitectura RAG que responde sobre las políticas de una tienda a partir de su PDF oficial, sin inventar respuestas.</p>
+            <p class="otro-pila">Python · LangChain · Cohere · FAISS · Streamlit · OCI</p>
+          </div>
+          <p class="otro-enlaces"><a href="https://luminastore-agente-ia-challenge-alura.streamlit.app/" target="_blank" rel="noopener">Probar<svg aria-hidden="true"><use href="#i-flecha" /></svg></a><a href="https://github.com/Cristianriosrivas/luminastore-agente-ia" target="_blank" rel="noopener">Código<svg aria-hidden="true"><use href="#i-flecha" /></svg></a></p>
+        </li>
+        <li id="otro-parqueapp" data-proyecto="parqueapp">
+          <span class="otro-anio">2025</span>
+          <div class="otro-cuerpo">
+            <h3>ParqueApp <span>Proyecto en equipo · frontend</span></h3>
+            <p>Sistema web para buscar, reservar y gestionar parqueaderos, con mapas en tiempo real y roles de usuario. Trabajé en el frontend.</p>
+            <p class="otro-pila">Vue 3 · Tailwind CSS · Pinia · Firebase · Leaflet</p>
+          </div>
+          <p class="otro-enlaces"><a href="https://github.com/Cristianriosrivas/Parqueapp-frontend" target="_blank" rel="noopener">Código<svg aria-hidden="true"><use href="#i-flecha" /></svg></a></p>
+        </li>
+      </ol>
     </section>
 
     <!-- EXPERIENCIA -->
-    <section id="experiencia" class="seccion" data-lado="izq" data-pose="puerto" aria-labelledby="titulo-bitacora">
-      <div class="lamina lamina-angosta">
-        <h2 id="titulo-bitacora" class="titulo">Bitácora</h2>
-        <p class="entrada">Experiencia, formación e idiomas.</p>
-        <ol class="bitacora">
+    <section id="experiencia" class="seccion seccion-doble" aria-labelledby="titulo-experiencia">
+      <div class="seccion-cabeza seccion-cabeza-fija">
+        <h2 id="titulo-experiencia">Experiencia</h2>
+        <p>Trabajo, formación e idiomas.</p>
+      </div>
+      <div class="linea">
+        <ol class="hitos">
           <li>
             <time>ago 2026 – dic 2026</time>
-            <div>
-              <h3>Desarrollador web y diseñador</h3>
-              <p class="bitacora-lugar">Universidad del Valle · Revista Afro Univalluna</p>
-              <p>Diseño y desarrollo del sitio web de la revista en Joomla, de principio a fin. Soy el responsable de la interfaz y de la configuración del sitio. Trabajo pagado por la universidad; el sitio está pendiente de publicación.</p>
-            </div>
+            <h3>Desarrollador web y diseñador</h3>
+            <p class="hito-lugar">Universidad del Valle · Revista Afro Univalluna</p>
+            <p>Diseño y desarrollo del sitio web de la revista en Joomla, de principio a fin. Soy el responsable de la interfaz y de la configuración del sitio. Trabajo pagado por la universidad; el sitio está pendiente de publicación.</p>
           </li>
           <li>
             <time>sep 2026 – oct 2026</time>
-            <div>
-              <h3>Desarrollador Frontend e IA</h3>
-              <p class="bitacora-lugar">No Country · Hackathon ONE G10 (Oracle Next Education y Alura) · remoto</p>
-              <p>Frontend de MediFlow y agente de triaje con LangGraph y FastAPI. Corregí errores de integración entre el frontend, la API en Spring Boot y el agente, y trabajé con ramas y Pull Requests en un equipo de 6 personas.</p>
-            </div>
+            <h3>Desarrollador Frontend e IA</h3>
+            <p class="hito-lugar">No Country · Hackathon ONE G10 (Oracle Next Education y Alura) · remoto</p>
+            <p>Frontend de MediFlow y agente de triaje con LangGraph y FastAPI. Corregí errores de integración entre el frontend, la API en Spring Boot y el agente, y trabajé con ramas y Pull Requests en un equipo de 6 personas.</p>
           </li>
           <li>
             <time>Independiente</time>
-            <div>
-              <h3>Desarrollador de soluciones digitales</h3>
-              <p class="bitacora-lugar">Comercio local y pymes</p>
-              <p>Sitios web y landing pages, facturación digital, catálogos interactivos y menús QR para negocios.</p>
-            </div>
+            <h3>Desarrollador de soluciones digitales</h3>
+            <p class="hito-lugar">Comercio local y pymes</p>
+            <p>Sitios web y landing pages, facturación digital, catálogos interactivos y menús QR para negocios.</p>
           </li>
         </ol>
         <h3 class="subtitulo">Formación</h3>
-        <ol class="bitacora bitacora-corta">
-          <li><time>2022 – hoy</time><div><h4>Tecnología en Desarrollo de Software</h4><p class="bitacora-lugar">Universidad del Valle · Sede Pacífico</p></div></li>
-          <li><time>oct 2026</time><div><h4>ONE AI for Tech · 262 horas</h4><p class="bitacora-lugar">Oracle Next Education y Alura</p></div></li>
+        <ol class="hitos hitos-cortos">
+          <li><time>2022 – hoy</time><h4>Tecnología en Desarrollo de Software</h4><p class="hito-lugar">Universidad del Valle · Sede Pacífico</p></li>
+          <li><time>oct 2026</time><h4>ONE AI for Tech · 262 horas</h4><p class="hito-lugar">Oracle Next Education y Alura</p></li>
         </ol>
-        <p class="idiomas"><span><strong>Español</strong> nativo</span><span><strong>Inglés</strong> B1, técnico</span><span><strong>Francés</strong> A1</span></p>
+        <dl class="idiomas">
+          <div><dt>Español</dt><dd>Nativo</dd></div>
+          <div><dt>Inglés</dt><dd>B1, técnico</dd></div>
+          <div><dt>Francés</dt><dd>A1</dd></div>
+        </dl>
       </div>
     </section>
 
     <!-- CERTIFICADOS -->
-    <section id="certificados" class="seccion" data-pose="univalle" aria-labelledby="titulo-certificados">
-      <div class="lamina">
-        <h2 id="titulo-certificados" class="titulo">Certificados</h2>
-        <div class="notas">
-          <article class="nota nota-oracle">
-            <h3>Oracle Cloud Infrastructure Certified AI Foundations Associate</h3>
-            <p>Oracle · septiembre 2026 · vigente hasta 2028</p>
-          </article>
-          <article class="nota nota-oracle">
-            <h3>Oracle AI Database Certified Foundations Associate</h3>
-            <p>Oracle · septiembre 2026</p>
-          </article>
-          <article class="nota nota-one">
+    <section id="certificados" class="seccion" aria-labelledby="titulo-certificados">
+      <div class="seccion-cabeza">
+        <h2 id="titulo-certificados">Certificados</h2>
+        <p>Las formaciones de Alura enlazan a su verificación pública.</p>
+      </div>
+      <div class="certificados">
+        <article class="cert cert-oracle">
+          <span class="cert-emisor">Oracle</span>
+          <h3>OCI AI Foundations Associate</h3>
+          <p>Oracle Cloud Infrastructure Certified · septiembre 2026 · vigente hasta 2028</p>
+        </article>
+        <article class="cert cert-oracle">
+          <span class="cert-emisor">Oracle</span>
+          <h3>AI Database Foundations Associate</h3>
+          <p>Oracle AI Database Certified · septiembre 2026</p>
+        </article>
+        <article class="cert cert-one">
+          <div class="cert-one-cabeza">
             <h3>ONE AI for Tech · 262 horas</h3>
-            <p>Oracle Next Education y Alura · terminado en octubre de 2026. Formaciones, con su enlace público de verificación:</p>
-            <ul class="formaciones">
-              <li><a href="https://app.aluracursos.com/degree/certificate/f9ba5b21-8dda-4343-9c70-1ba47d89af4d" target="_blank" rel="noopener">Nivelación</a><span>50 h</span></li>
-              <li><a href="https://app.aluracursos.com/degree/certificate/9ed0c854-3449-46cb-94ea-435d2873cb0f" target="_blank" rel="noopener">Fundamentos del mundo de la Inteligencia Artificial</a><span>12 h</span></li>
-              <li><a href="https://app.aluracursos.com/degree/certificate/5463d672-c077-4ab3-a7da-8757cae3507d" target="_blank" rel="noopener">Desarrollo y Orquestación con IA Generativa</a><span>25 h</span></li>
-              <li><a href="https://app.aluracursos.com/degree/certificate/443bd97c-6d70-4d7f-b160-9df405546a2c" target="_blank" rel="noopener">Ingeniería de Agentes y Automatización con IA</a><span>36 h</span></li>
-              <li><a href="https://app.aluracursos.com/degree/certificate/474f5aea-d938-4bef-a50b-59ce0e4356de" target="_blank" rel="noopener">Inteligencia de Datos y RAG Avanzado</a><span>27 h</span></li>
-              <li><a href="https://app.aluracursos.com/degree/certificate/ba5298a5-8d3f-46a1-b6bb-f2d5ec4e823a" target="_blank" rel="noopener">Oracle Cloud Infrastructure</a><span>16 h</span></li>
-              <li><a href="https://app.aluracursos.com/degree/certificate/57734abb-b11a-416f-8b8f-70a92a4339c9" target="_blank" rel="noopener">Ruta hacia la certificación OCI Foundations Associate</a><span>57 h</span></li>
-            </ul>
-          </article>
-          <ul class="certs">
-            <li><span class="cert-nombre">Aplicación del marco de trabajo Scrum para proyectos de desarrollo de software</span><span class="cert-dato">SENA · oct 2026 · 48 h</span></li>
-            <li><span class="cert-nombre">English for IT 1 y 2</span><span class="cert-dato">Cisco Networking Academy · ago 2026</span></li>
-            <li><span class="cert-nombre"><a href="https://app.aluracursos.com/certificate/84a2a591-9034-4a7c-8627-58103bf6d288" target="_blank" rel="noopener">Git y GitHub: compartiendo y colaborando en proyectos</a></span><span class="cert-dato">Alura · jul 2026 · 8 h</span></li>
-            <li><span class="cert-nombre">Marketing Digital a través de Redes Sociales</span><span class="cert-dato">MinTIC y Universidad Distrital · jul 2026 · 48 h</span></li>
+            <p>Oracle Next Education y Alura · terminado en octubre de 2026</p>
+          </div>
+          <ul class="formaciones">
+            <li><a href="https://app.aluracursos.com/degree/certificate/f9ba5b21-8dda-4343-9c70-1ba47d89af4d" target="_blank" rel="noopener">Nivelación</a><span>50 h</span></li>
+            <li><a href="https://app.aluracursos.com/degree/certificate/9ed0c854-3449-46cb-94ea-435d2873cb0f" target="_blank" rel="noopener">Fundamentos del mundo de la Inteligencia Artificial</a><span>12 h</span></li>
+            <li><a href="https://app.aluracursos.com/degree/certificate/5463d672-c077-4ab3-a7da-8757cae3507d" target="_blank" rel="noopener">Desarrollo y Orquestación con IA Generativa</a><span>25 h</span></li>
+            <li><a href="https://app.aluracursos.com/degree/certificate/443bd97c-6d70-4d7f-b160-9df405546a2c" target="_blank" rel="noopener">Ingeniería de Agentes y Automatización con IA</a><span>36 h</span></li>
+            <li><a href="https://app.aluracursos.com/degree/certificate/474f5aea-d938-4bef-a50b-59ce0e4356de" target="_blank" rel="noopener">Inteligencia de Datos y RAG Avanzado</a><span>27 h</span></li>
+            <li><a href="https://app.aluracursos.com/degree/certificate/ba5298a5-8d3f-46a1-b6bb-f2d5ec4e823a" target="_blank" rel="noopener">Oracle Cloud Infrastructure</a><span>16 h</span></li>
+            <li><a href="https://app.aluracursos.com/degree/certificate/57734abb-b11a-416f-8b8f-70a92a4339c9" target="_blank" rel="noopener">Ruta hacia la certificación OCI Foundations Associate</a><span>57 h</span></li>
           </ul>
-        </div>
+        </article>
+        <ul class="certs">
+          <li><span class="cert-nombre">Aplicación del marco de trabajo Scrum para proyectos de desarrollo de software</span><span class="cert-dato">SENA · oct 2026 · 48 h</span></li>
+          <li><span class="cert-nombre">English for IT 1 y 2</span><span class="cert-dato">Cisco Networking Academy · ago 2026</span></li>
+          <li><span class="cert-nombre"><a href="https://app.aluracursos.com/certificate/84a2a591-9034-4a7c-8627-58103bf6d288" target="_blank" rel="noopener">Git y GitHub: compartiendo y colaborando en proyectos</a></span><span class="cert-dato">Alura · jul 2026 · 8 h</span></li>
+          <li><span class="cert-nombre">Marketing Digital a través de Redes Sociales</span><span class="cert-dato">MinTIC y Universidad Distrital · jul 2026 · 48 h</span></li>
+        </ul>
       </div>
     </section>
 
-    <!-- HABILIDADES: la leyenda de la carta -->
-    <section id="habilidades" class="seccion" data-lado="izq" data-pose="leyenda" aria-labelledby="titulo-leyenda">
-      <div class="lamina lamina-angosta">
-        <h2 id="titulo-leyenda" class="titulo">Leyenda</h2>
-        <p class="entrada">Las herramientas con las que trabajo. Las marcadas con <svg class="ico-linea" aria-hidden="true"><use href="#i-rumbo" /></svg> trazan su rumbo en la carta.</p>
-        <div class="leyenda" id="leyenda">
-          <div class="leyenda-grupo">
-            <h3>Frontend y móvil</h3>
-            <ul><li data-h="typescript">JavaScript</li><li data-h="typescript">TypeScript</li><li data-h="react">React</li><li data-h="movil">React Native y Expo</li><li data-h="nextjs">Next.js</li><li data-h="vue">Vue 3</li><li data-h="tailwind">Tailwind CSS</li><li data-h="3d">Three.js</li><li>HTML y CSS</li></ul>
-          </div>
-          <div class="leyenda-grupo">
-            <h3>Backend y datos</h3>
-            <ul><li data-h="python">Python</li><li data-h="python">FastAPI</li><li>Node.js</li><li data-h="supabase">PostgreSQL</li><li data-h="supabase">Supabase</li><li>Firebase</li><li>MongoDB</li><li data-h="supabase">SQL</li></ul>
-          </div>
-          <div class="leyenda-grupo">
-            <h3>Inteligencia artificial</h3>
-            <ul><li data-h="ia">LangGraph</li><li data-h="ia">LangChain</li><li data-h="ia">RAG</li><li data-h="ia">Gemini</li><li data-h="ia">Groq</li><li data-h="ia">Cohere</li></ul>
-          </div>
-          <div class="leyenda-grupo">
-            <h3>Calidad y producto</h3>
-            <ul><li>Jest</li><li data-h="python">pytest</li><li data-h="algoritmos">Algoritmos y estructuras de datos</li><li data-h="equipo">Git y GitHub</li><li>Docker</li><li data-h="equipo">Scrum</li><li>Historias de usuario</li><li>Figma</li></ul>
-          </div>
+    <!-- HABILIDADES -->
+    <section id="habilidades" class="seccion" aria-labelledby="titulo-habilidades">
+      <div class="seccion-cabeza">
+        <h2 id="titulo-habilidades">Tecnologías</h2>
+        <p>Con lo que trabajo a diario y lo que uso en producción.</p>
+      </div>
+      <div class="grupos">
+        <div class="grupo">
+          <h3>Frontend y móvil</h3>
+          <ul><li>JavaScript</li><li>TypeScript</li><li>React</li><li>React Native y Expo</li><li>Next.js</li><li>Vue 3</li><li>Tailwind CSS</li><li>Three.js</li><li>HTML y CSS</li></ul>
+        </div>
+        <div class="grupo">
+          <h3>Backend y datos</h3>
+          <ul><li>Python</li><li>FastAPI</li><li>Node.js</li><li>PostgreSQL</li><li>Supabase</li><li>Firebase</li><li>MongoDB</li><li>SQL</li></ul>
+        </div>
+        <div class="grupo">
+          <h3>Inteligencia artificial</h3>
+          <ul><li>LangGraph</li><li>LangChain</li><li>RAG</li><li>Gemini</li><li>Groq</li><li>Cohere</li></ul>
+        </div>
+        <div class="grupo">
+          <h3>Calidad y producto</h3>
+          <ul><li>Jest</li><li>pytest</li><li>Vitest</li><li>Git y GitHub</li><li>Docker</li><li>Scrum</li><li>Historias de usuario</li><li>Figma</li></ul>
         </div>
       </div>
     </section>
 
     <!-- CONTACTO -->
-    <section id="contacto" class="seccion contacto" data-pose="boca" aria-labelledby="titulo-contacto">
-      <div class="lamina lamina-contacto">
-        <h2 id="titulo-contacto" class="titulo">¿Construimos algo juntos?</h2>
-        <p class="entrada">Busco prácticas profesionales o mi primer rol como desarrollador frontend o mobile, Product Owner o Scrum Master junior. Tengo disponibilidad para trasladarme.</p>
-        <div class="acciones">
-          <a class="boton boton-magenta" href="mailto:cristiandavidriosrivas@gmail.com?subject=Contacto%20desde%20tu%20portafolio">Escribirme</a>
-          <button class="boton boton-linea" type="button" id="copiar-correo" data-correo="cristiandavidriosrivas@gmail.com"><svg aria-hidden="true"><use href="#i-copiar" /></svg><span>Copiar el correo</span></button>
-          <a class="boton boton-linea" href="Cristian_Rios_CV.pdf" download><svg aria-hidden="true"><use href="#i-descarga" /></svg>Descargar CV</a>
-        </div>
-        <p class="correo">cristiandavidriosrivas@gmail.com</p>
-        <p class="redes">
-          <a class="enlace" href="https://linkedin.com/in/cristian-david-rios-rivas-998b383b7" target="_blank" rel="noopener">LinkedIn<svg aria-hidden="true"><use href="#i-flecha" /></svg></a>
-          <a class="enlace" href="https://github.com/Cristianriosrivas" target="_blank" rel="noopener">GitHub<svg aria-hidden="true"><use href="#i-flecha" /></svg></a>
-        </p>
+    <section id="contacto" class="contacto" aria-labelledby="titulo-contacto">
+      <h2 id="titulo-contacto">¿Construimos algo juntos?</h2>
+      <p>Busco prácticas profesionales o mi primer rol como desarrollador frontend o mobile, Product Owner o Scrum Master junior. Tengo disponibilidad para trasladarme.</p>
+      <div class="acciones">
+        <a class="boton boton-acento" href="mailto:cristiandavidriosrivas@gmail.com?subject=Contacto%20desde%20tu%20portafolio"><svg aria-hidden="true"><use href="#i-correo" /></svg>Escribirme</a>
+        <button class="boton boton-linea" type="button" id="copiar-correo" data-correo="cristiandavidriosrivas@gmail.com"><svg aria-hidden="true"><use href="#i-copiar" /></svg><span>Copiar el correo</span></button>
+        <a class="boton boton-linea" href="Cristian_Rios_CV.pdf" download><svg aria-hidden="true"><use href="#i-descarga" /></svg>Descargar CV</a>
       </div>
+      <p class="contacto-correo">cristiandavidriosrivas@gmail.com</p>
+      <p class="redes">
+        <a href="https://linkedin.com/in/cristian-david-rios-rivas-998b383b7" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-linkedin" /></svg>LinkedIn</a>
+        <a href="https://github.com/Cristianriosrivas" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-github" /></svg>GitHub</a>
+      </p>
     </section>
   </main>
 
   <footer class="pie">
-    <p>Carta esquemática de la Bahía de Buenaventura, hecha para este portafolio. No sirve para navegar.</p>
-    <p>© 2026 Cristian David Rios · Hecho a mano con HTML, CSS y Three.js · 3°53′N 77°02′W</p>
+    <p>© 2026 Cristian David Rios · Buenaventura, Colombia</p>
+    <p>Hecho a mano con HTML, CSS y Three.js</p>
   </footer>
 
-  <!-- Sala de video: el plano ampliado -->
+  <!-- Buscador rápido -->
+  <dialog class="paleta" id="paleta" aria-label="Buscar en el portafolio">
+    <div class="paleta-campo">
+      <svg aria-hidden="true"><use href="#i-buscar" /></svg>
+      <input id="paleta-campo" type="text" role="combobox" aria-expanded="true" aria-controls="paleta-lista" aria-autocomplete="list" autocomplete="off" spellcheck="false" placeholder="Busca un proyecto, una tecnología o una sección" />
+      <kbd>Esc</kbd>
+    </div>
+    <div class="paleta-lista" id="paleta-lista" role="listbox" aria-label="Resultados"></div>
+    <div class="paleta-pie" aria-hidden="true"><span><kbd>↑</kbd><kbd>↓</kbd> moverse</span><span><kbd>Enter</kbd> abrir</span></div>
+  </dialog>
+
+  <!-- Sala de video -->
   <dialog class="cine" id="cine" aria-labelledby="cine-titulo">
     <div class="cine-marco">
       <div class="cine-cabeza">
@@ -443,12 +436,11 @@
       </div>
       <div class="cine-pantalla">
         <video id="cine-video" playsinline preload="none"></video>
-        <button class="cine-grande" type="button" id="cine-grande" aria-label="Reproducir"><svg aria-hidden="true"><use href="#i-play" /></svg></button>
+        <button class="cine-grande" type="button" id="cine-grande" aria-label="Reproducir" hidden><svg aria-hidden="true"><use href="#i-play" /></svg></button>
       </div>
       <div class="cine-controles">
         <button type="button" id="cine-play" aria-label="Pausar"><svg aria-hidden="true"><use href="#i-pausa" /></svg></button>
         <div class="cine-escala" id="cine-escala" role="slider" tabindex="0" aria-label="Avance del video" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0:00">
-          <div class="cine-escala-tramos" aria-hidden="true"></div>
           <div class="cine-escala-avance" id="cine-avance" aria-hidden="true"></div>
         </div>
         <span class="cine-tiempo" id="cine-tiempo">0:00 / 0:00</span>
