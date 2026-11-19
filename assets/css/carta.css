@@ -1,0 +1,1992 @@
+/* Carta de proyectos · Cristian David Rios
+   El mundo es una carta náutica de la Bahía de Buenaventura: papel de carta, tintes de sonda,
+   tierra beige, tinta azul negra y el magenta con que las cartas marcan luces y rumbos. */
+
+:root {
+  --papel: #f8f9f7;
+  --papel-2: #eef0ec;
+  --papel-3: #dfe2dc;
+  --tierra: #efd9a6;
+  --tierra-2: #e2c27f;
+  --sonda-1: #9fcbe3;
+  --sonda-2: #bcdcec;
+  --sonda-3: #d6eaf3;
+  --sonda-4: #e9f3f7;
+  --tinta: #18233a;
+  --tinta-2: #3a4862;
+  --tinta-3: #5d6a82;
+  --magenta: #b8006f;
+  --magenta-2: #d6338e;
+  --rojo: #c8102e;
+  --verde: #00804a;
+  --filete: rgba(24, 35, 58, 0.22);
+  --filete-fuerte: rgba(24, 35, 58, 0.55);
+
+  --letra: 'Archivo', 'Arial Narrow', sans-serif;
+  --salida: cubic-bezier(0.23, 1, 0.32, 1);
+  --vaiven: cubic-bezier(0.77, 0, 0.175, 1);
+
+  --barra: 60px;
+  --borde: 12px;
+  --borde-abajo: 12px;
+  --gutter: clamp(16px, 4vw, 56px);
+  --sombra-lamina: 0 22px 48px -26px rgba(24, 35, 58, 0.5), 0 2px 6px -2px rgba(24, 35, 58, 0.12);
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--barra) + 16px);
+  scrollbar-color: var(--tinta-2) var(--papel-2);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--letra);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  font-variation-settings: 'wdth' 100;
+  font-feature-settings: 'kern', 'liga';
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  caret-color: var(--magenta);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--magenta);
+  color: var(--papel);
+}
+
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 1px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--magenta);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.oculto {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.saltar {
+  position: fixed;
+  top: 8px;
+  left: 50%;
+  z-index: 60;
+  transform: translate(-50%, -160%);
+  padding: 10px 16px;
+  background: var(--tinta);
+  color: var(--papel);
+  font-weight: 650;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: transform 200ms var(--salida);
+}
+
+.saltar:focus {
+  transform: translate(-50%, 0);
+}
+
+/* ------------------------------------------------------------------ */
+/* La carta 3D y sus señales                                          */
+/* ------------------------------------------------------------------ */
+
+#carta {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: block;
+  background: var(--papel);
+}
+
+/* Si no hay WebGL, la carta se pinta en 2D como fondo fijo. */
+.carta-plana {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-color: var(--papel);
+  background-size: cover;
+  background-position: 62% 50%;
+}
+
+.senales {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.senal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  padding: 0 0 0 0;
+  border: 0;
+  background: none;
+  color: var(--tinta);
+  font: inherit;
+  text-align: left;
+  pointer-events: auto;
+  cursor: pointer;
+  white-space: nowrap;
+  will-change: transform;
+  transition: opacity 260ms var(--salida);
+}
+
+.senal[hidden] {
+  display: none;
+}
+
+.senal-texto {
+  display: grid;
+  gap: 1px;
+  padding: 5px 8px 6px;
+  background: rgba(248, 249, 247, 0.88);
+  border: 1px solid var(--filete);
+  border-radius: 2px;
+  transform: translateY(-14px);
+  transition: background-color 200ms ease, border-color 200ms ease, transform 260ms var(--salida);
+}
+
+.senal-nombre {
+  font-size: 0.8rem;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 118;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.senal-car {
+  font-size: 0.72rem;
+  font-style: italic;
+  font-variation-settings: 'wdth' 80;
+  color: var(--magenta);
+  line-height: 1.1;
+}
+
+.senal:hover .senal-texto,
+.senal.activa .senal-texto {
+  background: var(--papel);
+  border-color: var(--magenta);
+  transform: translateY(-17px);
+}
+
+.senal-menor .senal-texto {
+  padding: 3px 6px 4px;
+}
+
+.senal-menor .senal-nombre {
+  font-size: 0.72rem;
+}
+
+.rumbo-etiqueta {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 2px 6px;
+  color: var(--magenta);
+  background: rgba(248, 249, 247, 0.92);
+  font-size: 0.72rem;
+  font-style: italic;
+  font-variation-settings: 'wdth' 82;
+  font-feature-settings: 'tnum';
+  white-space: nowrap;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* Marco de la carta: escala de latitud en los bordes                 */
+/* ------------------------------------------------------------------ */
+
+.marco {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+}
+
+.marco-borde {
+  position: absolute;
+  background: var(--papel);
+}
+
+/* Franjas alternas de un minuto de arco, como el borde graduado de una carta. */
+.marco-izq,
+.marco-der {
+  top: var(--barra);
+  bottom: var(--borde-abajo);
+  width: var(--borde);
+  background-color: var(--papel);
+  background-image: repeating-linear-gradient(180deg, var(--tinta) 0 28px, var(--papel) 28px 56px);
+  background-size: 4px 100%;
+  background-repeat: no-repeat;
+}
+
+.marco-izq {
+  left: 0;
+  border-right: 1px solid var(--tinta);
+  background-position: right 2px top 0;
+}
+
+.marco-der {
+  right: 0;
+  border-left: 1px solid var(--tinta);
+  background-position: left 2px top 0;
+}
+
+.marco-abajo {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--borde-abajo);
+  border-top: 1px solid var(--tinta);
+  background-color: var(--papel);
+  background-image: repeating-linear-gradient(90deg, var(--tinta) 0 28px, var(--papel) 28px 56px);
+  background-size: 100% 4px;
+  background-repeat: no-repeat;
+  background-position: 0 2px;
+}
+
+.marco-abajo span,
+.marco-izq span {
+  display: none;
+}
+
+/* En pantallas anchas el marco lleva sus coordenadas, como el borde de una carta impresa. */
+@media (min-width: 1100px) {
+  :root {
+    --borde-abajo: 26px;
+  }
+
+  .marco-abajo {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding-bottom: 3px;
+  }
+
+  .marco-abajo span,
+  .marco-izq span {
+    display: block;
+    font-size: 0.72rem;
+    font-style: italic;
+    font-weight: 600;
+    font-variation-settings: 'wdth' 86;
+    font-feature-settings: 'tnum';
+    line-height: 1;
+    color: var(--tinta-2);
+  }
+
+  .marco-izq span {
+    position: absolute;
+    left: 50%;
+    padding: 2px 4px;
+    background: var(--papel);
+    transform: translate(-50%, -50%) rotate(-90deg);
+    white-space: nowrap;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Barra superior                                                     */
+/* ------------------------------------------------------------------ */
+
+.barra {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: var(--barra);
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 3vw, 40px);
+  padding: 0 calc(var(--borde) + clamp(12px, 2.4vw, 32px));
+  background: var(--papel);
+  border-bottom: 1px solid var(--tinta);
+}
+
+/* El borde superior de la carta, graduado como los laterales. */
+.barra::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 7px;
+  background-color: var(--papel);
+  background-image: repeating-linear-gradient(90deg, var(--tinta) 0 28px, var(--papel) 28px 56px);
+  background-size: 100% 4px;
+  background-repeat: no-repeat;
+  background-position: 0 1px;
+  border-bottom: 1px solid var(--tinta);
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--tinta);
+  text-decoration: none;
+}
+
+.marca-luz {
+  width: 22px;
+  height: 22px;
+  color: var(--magenta);
+}
+
+.marca-texto {
+  font-size: 0.95rem;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 125;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.menu {
+  display: flex;
+  gap: clamp(14px, 2.4vw, 32px);
+  margin-left: auto;
+}
+
+.menu a {
+  position: relative;
+  padding: 6px 0;
+  color: var(--tinta-2);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.menu a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--magenta);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 260ms var(--salida);
+}
+
+.menu a:hover,
+.menu a[aria-current='true'] {
+  color: var(--tinta);
+}
+
+.menu a:hover::after,
+.menu a[aria-current='true']::after {
+  transform: scaleX(1);
+}
+
+/* ------------------------------------------------------------------ */
+/* Botones                                                            */
+/* ------------------------------------------------------------------ */
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 0 20px;
+  border: 1.5px solid var(--tinta);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--tinta);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-variation-settings: 'wdth' 108;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, transform 160ms var(--salida);
+}
+
+.boton svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+
+.boton:active {
+  transform: scale(0.97);
+}
+
+.boton-tinta {
+  background: var(--tinta);
+  color: var(--papel);
+}
+
+.boton-tinta:hover {
+  background: var(--magenta);
+  border-color: var(--magenta);
+}
+
+.boton-linea {
+  background: var(--papel);
+}
+
+.boton-linea:hover {
+  border-color: var(--magenta);
+  color: var(--magenta);
+}
+
+.boton-magenta {
+  background: var(--magenta);
+  border-color: var(--magenta);
+  color: var(--papel);
+}
+
+.boton-magenta:hover {
+  background: var(--tinta);
+  border-color: var(--tinta);
+}
+
+.boton-chico {
+  min-height: 40px;
+  padding: 0 14px;
+  font-size: 0.88rem;
+}
+
+.boton-cv {
+  min-height: 38px;
+  padding: 0 14px;
+  font-size: 0.88rem;
+}
+
+.enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--tinta);
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-color: var(--filete-fuerte);
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+
+.enlace svg {
+  width: 16px;
+  height: 16px;
+}
+
+.enlace:hover {
+  color: var(--magenta);
+  text-decoration-color: currentColor;
+}
+
+/* ------------------------------------------------------------------ */
+/* Portada                                                            */
+/* ------------------------------------------------------------------ */
+
+main {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+main a,
+main button,
+main input,
+main table,
+main .lamina,
+main .cartucho,
+main .trazador,
+main .plano > * {
+  pointer-events: auto;
+}
+
+.portada {
+  position: relative;
+  min-height: 100svh;
+  padding: calc(var(--barra) + clamp(20px, 4vh, 44px)) calc(var(--borde) + var(--gutter)) calc(var(--borde-abajo) + 22px);
+  display: grid;
+  grid-template-columns: minmax(0, 560px) 1fr minmax(0, 380px);
+  grid-template-rows: auto 1fr auto;
+  gap: 24px;
+}
+
+/* El cartucho de título: doble filete, como el de una carta impresa. */
+.cartucho {
+  grid-column: 1;
+  grid-row: 1 / 4;
+  align-self: start;
+  position: relative;
+  padding: clamp(22px, 3vw, 34px) clamp(22px, 3vw, 36px) clamp(20px, 2.6vw, 28px);
+  background: var(--papel);
+  border: 2px solid var(--tinta);
+  outline: 1px solid var(--tinta);
+  outline-offset: -7px;
+  box-shadow: var(--sombra-lamina);
+}
+
+.cartucho h1 {
+  display: grid;
+  min-width: 0;
+  font-size: clamp(2.6rem, 5.4vw, 5.25rem);
+  font-weight: 850;
+  font-variation-settings: 'wdth' 122;
+  letter-spacing: -0.012em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+.cartucho h1 span:last-child {
+  color: var(--tinta-2);
+}
+
+.cartucho-rol {
+  margin-top: 18px;
+  font-size: clamp(1.1rem, 1.6vw, 1.25rem);
+  font-style: italic;
+  font-weight: 560;
+  font-variation-settings: 'wdth' 86;
+  color: var(--magenta);
+}
+
+.cartucho-texto {
+  margin-top: 12px;
+  max-width: 46ch;
+  color: var(--tinta-2);
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.cartucho-pie {
+  margin-top: 22px;
+  padding-top: 12px;
+  border-top: 1px solid var(--filete);
+  font-size: 0.8rem;
+  font-variation-settings: 'wdth' 90;
+  color: var(--tinta-3);
+}
+
+/* Trazador de rumbo */
+.trazador {
+  grid-column: 3;
+  grid-row: 3;
+  align-self: end;
+  padding: 18px 18px 16px;
+  background: rgba(248, 249, 247, 0.95);
+  border: 1px solid var(--tinta);
+  border-radius: 3px;
+  box-shadow: var(--sombra-lamina);
+}
+
+.trazador-titulo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 120;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.trazador-titulo svg {
+  width: 22px;
+  height: 22px;
+  color: var(--magenta);
+}
+
+.trazador-ayuda {
+  margin-top: 6px;
+  font-size: 0.88rem;
+  color: var(--tinta-2);
+}
+
+.fichas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.ficha-habilidad {
+  min-height: 32px;
+  padding: 0 11px;
+  border: 1px solid var(--filete-fuerte);
+  border-radius: 999px;
+  background: var(--papel);
+  color: var(--tinta);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, transform 140ms var(--salida);
+}
+
+.ficha-habilidad:hover {
+  border-color: var(--magenta);
+  color: var(--magenta);
+}
+
+.ficha-habilidad:active {
+  transform: scale(0.96);
+}
+
+.ficha-habilidad[aria-pressed='true'] {
+  background: var(--magenta);
+  border-color: var(--magenta);
+  color: var(--papel);
+}
+
+.trazador-campo {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.trazador-campo input {
+  flex: 1;
+  min-width: 0;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--filete-fuerte);
+  border-radius: 3px;
+  background: var(--papel);
+  color: var(--tinta);
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+.trazador-campo input::placeholder {
+  color: var(--tinta-3);
+  font-style: italic;
+}
+
+.trazador-campo input:focus-visible {
+  outline-offset: 0;
+  border-color: var(--magenta);
+}
+
+.trazador-salida {
+  margin-top: 10px;
+  min-height: 1.4em;
+  font-size: 0.88rem;
+  color: var(--tinta-2);
+}
+
+.trazador-salida:empty {
+  display: none;
+}
+
+.trazador-salida b {
+  color: var(--magenta);
+  font-weight: 700;
+}
+
+.trazador-salida a {
+  font-weight: 650;
+}
+
+.pista {
+  grid-column: 2;
+  grid-row: 3;
+  align-self: end;
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 2px;
+  color: var(--tinta-2);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.pista svg {
+  width: 18px;
+  height: 18px;
+  transform: rotate(135deg);
+  transition: transform 260ms var(--salida);
+}
+
+.pista:hover {
+  color: var(--magenta);
+}
+
+.pista:hover svg {
+  transform: rotate(135deg) translate(-2px, -2px);
+}
+
+/* ------------------------------------------------------------------ */
+/* Secciones y láminas                                                */
+/* ------------------------------------------------------------------ */
+
+.seccion {
+  position: relative;
+  padding: clamp(72px, 12vh, 140px) calc(var(--borde) + var(--gutter));
+}
+
+.lamina {
+  position: relative;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(26px, 4vw, 52px);
+  background: var(--papel);
+  border: 1px solid var(--tinta);
+  box-shadow: var(--sombra-lamina);
+}
+
+.lamina-angosta {
+  max-width: 880px;
+}
+
+/* En pantallas anchas algunas láminas se pegan a un lado para que la carta se vea al otro. */
+@media (min-width: 1240px) {
+  .seccion[data-lado='izq'] .lamina {
+    margin-left: 0;
+  }
+
+  .seccion[data-lado='der'] .lamina {
+    margin-right: 0;
+  }
+}
+
+.titulo {
+  font-size: clamp(2.2rem, 4.6vw, 4rem);
+  font-weight: 850;
+  font-variation-settings: 'wdth' 122;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.entrada {
+  margin-top: 14px;
+  max-width: 62ch;
+  font-size: 1.1rem;
+  color: var(--tinta-2);
+}
+
+.subtitulo {
+  margin-top: 44px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 118;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------------ */
+/* Planos de detalle: los proyectos con video                         */
+/* ------------------------------------------------------------------ */
+
+.planos {
+  display: grid;
+  gap: clamp(96px, 16vh, 180px);
+}
+
+.lamina-titulo {
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(24px, 3.4vw, 40px) clamp(26px, 4vw, 48px);
+}
+
+.plano {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  background: var(--papel);
+  border: 1px solid var(--tinta);
+  box-shadow: var(--sombra-lamina);
+}
+
+/* En pantallas anchas el plano deja ver la carta a un lado. */
+@media (min-width: 1240px) {
+  .plano {
+    width: min(1040px, 74%);
+    margin: 0;
+  }
+
+  .plano[data-lado='der'] {
+    margin-left: auto;
+  }
+}
+
+.inserto {
+  margin: 0;
+  padding: 14px 14px 12px;
+  border-bottom: 1px solid var(--tinta);
+  display: grid;
+  gap: 10px;
+  background: var(--papel-2);
+}
+
+.inserto-pie {
+  display: flex;
+  align-items: center;
+  gap: 8px 18px;
+  flex-wrap: wrap;
+}
+
+.inserto-pie .escala {
+  flex: 1 1 160px;
+}
+
+.inserto-dato {
+  font-size: 0.8rem;
+  font-style: italic;
+  font-variation-settings: 'wdth' 88;
+  color: var(--tinta-2);
+  white-space: nowrap;
+}
+
+.inserto-dato b {
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--magenta);
+}
+
+.inserto-cabeza {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-width: 0;
+  font-size: 0.8rem;
+  font-variation-settings: 'wdth' 90;
+  color: var(--tinta-2);
+}
+
+.inserto-letra {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--tinta);
+  border-radius: 50%;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--tinta);
+  flex: none;
+}
+
+.inserto-nombre {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inserto-pos {
+  margin-left: auto;
+  font-style: italic;
+  font-feature-settings: 'tnum';
+  white-space: nowrap;
+}
+
+/* El video va dentro de un marco con doble filete, como un plano de detalle. */
+.inserto-video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--tinta);
+  border: 2px solid var(--tinta);
+  outline: 1px solid var(--tinta);
+  outline-offset: -6px;
+}
+
+.avance {
+  position: absolute;
+  inset: 5px;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  object-fit: cover;
+  background: var(--tinta);
+}
+
+/* Arriba a la izquierda: abajo están los subtítulos del video. */
+.ver-video {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 18px 0 8px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--magenta);
+  color: var(--papel);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 750;
+  font-variation-settings: 'wdth' 108;
+  cursor: pointer;
+  transition: background-color 180ms ease, transform 200ms var(--salida);
+}
+
+.ver-video svg {
+  width: 34px;
+  height: 34px;
+  padding: 8px 7px 8px 9px;
+  border-radius: 50%;
+  background: var(--papel);
+  color: var(--magenta);
+}
+
+.ver-video:hover {
+  background: var(--tinta);
+  transform: translateY(-2px);
+}
+
+.ver-video:active {
+  transform: scale(0.97);
+}
+
+.duracion {
+  font-weight: 500;
+  font-style: italic;
+  font-feature-settings: 'tnum';
+  opacity: 0.85;
+}
+
+/* Escala gráfica bajo el video: marca el avance del bucle. */
+.escala {
+  position: relative;
+  height: 8px;
+  border: 1px solid var(--tinta);
+  background: repeating-linear-gradient(90deg, var(--tinta) 0 10%, var(--papel) 10% 20%);
+  overflow: hidden;
+}
+
+.escala i {
+  position: absolute;
+  inset: 0;
+  background: var(--magenta);
+  transform-origin: left;
+  transform: scaleX(var(--avance, 0));
+  mix-blend-mode: multiply;
+}
+
+.ficha {
+  padding: clamp(22px, 2.8vw, 34px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 20px clamp(24px, 3.4vw, 44px);
+}
+
+.ficha-a,
+.ficha-b {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ficha h3 {
+  font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+  font-weight: 850;
+  font-variation-settings: 'wdth' 120;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+}
+
+.ficha-titulo {
+  margin-top: -6px;
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 560;
+  font-variation-settings: 'wdth' 86;
+  color: var(--magenta);
+}
+
+.ficha-contexto {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--tinta-3);
+}
+
+.ficha p {
+  max-width: 60ch;
+}
+
+.ficha h4 {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 118;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hice {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.hice li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 0.95rem;
+  color: var(--tinta-2);
+}
+
+/* Cada viñeta es una boya: un círculo pequeño con su asta. */
+.hice li::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  border: 1.5px solid var(--magenta);
+  border-radius: 50%;
+}
+
+.pila {
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  font-size: 0.88rem;
+  font-style: italic;
+  font-variation-settings: 'wdth' 84;
+  color: var(--tinta-2);
+}
+
+.pila li + li::before {
+  content: '·';
+  margin-right: 14px;
+  margin-left: -14px;
+  position: relative;
+  left: -1px;
+  color: var(--tinta-3);
+  font-style: normal;
+}
+
+.enlaces {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Lista de luces                                                     */
+/* ------------------------------------------------------------------ */
+
+.luces {
+  width: 100%;
+  margin-top: 30px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.luces thead th {
+  padding: 0 12px 10px 0;
+  border-bottom: 2px solid var(--tinta);
+  font-size: 0.72rem;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 118;
+  letter-spacing: 0.1em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.luces td,
+.luces tbody th {
+  padding: 16px 16px 16px 0;
+  border-bottom: 1px solid var(--filete);
+  text-align: left;
+  vertical-align: top;
+  font-weight: 400;
+  color: var(--tinta-2);
+}
+
+.luces tbody tr {
+  transition: background-color 200ms ease;
+}
+
+.luces tbody tr:hover,
+.luces tbody tr.en-rumbo {
+  background: var(--sonda-4);
+}
+
+.luz-num {
+  width: 2.6em;
+  padding-right: 0 !important;
+}
+
+.luz-num span {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid var(--magenta);
+  border-radius: 50%;
+  font-size: 0.88rem;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--magenta);
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.luces tbody tr.en-rumbo .luz-num span {
+  background: var(--magenta);
+  color: var(--papel);
+}
+
+.luz-nombre {
+  display: block;
+  color: var(--tinta);
+  font-weight: 800;
+  font-variation-settings: 'wdth' 112;
+  font-size: 1.0625rem;
+  line-height: 1.2;
+}
+
+.luz-nota {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--tinta-3);
+}
+
+.luz-pila {
+  font-size: 0.88rem;
+  font-style: italic;
+  font-variation-settings: 'wdth' 86;
+  min-width: 12em;
+}
+
+.luz-anio {
+  font-weight: 700;
+  color: var(--tinta);
+}
+
+.luz-enlaces {
+  white-space: nowrap;
+}
+
+.luz-enlaces a {
+  display: inline-block;
+  margin-right: 14px;
+  font-weight: 650;
+  color: var(--tinta);
+}
+
+.luz-enlaces a:hover {
+  color: var(--magenta);
+}
+
+.luz-pendiente {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--tinta-3);
+}
+
+/* ------------------------------------------------------------------ */
+/* Bitácora                                                           */
+/* ------------------------------------------------------------------ */
+
+.bitacora {
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid var(--tinta);
+}
+
+.bitacora > li {
+  display: grid;
+  grid-template-columns: 10.5rem 1fr;
+  gap: 18px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--filete);
+}
+
+.bitacora time {
+  font-size: 0.88rem;
+  font-style: italic;
+  font-weight: 600;
+  font-variation-settings: 'wdth' 86;
+  font-feature-settings: 'tnum';
+  color: var(--magenta);
+  padding-top: 3px;
+}
+
+.bitacora h3,
+.bitacora h4 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 112;
+}
+
+.bitacora h4 {
+  font-size: 1.1rem;
+}
+
+.bitacora-lugar {
+  margin-top: 4px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--tinta-3);
+}
+
+.bitacora p:not(.bitacora-lugar) {
+  margin-top: 8px;
+  max-width: 62ch;
+  color: var(--tinta-2);
+}
+
+.bitacora-corta {
+  margin-top: 14px;
+}
+
+.bitacora-corta > li {
+  padding: 14px 0;
+}
+
+.idiomas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin-top: 28px;
+  color: var(--tinta-2);
+}
+
+.idiomas strong {
+  color: var(--tinta);
+  font-weight: 800;
+}
+
+/* ------------------------------------------------------------------ */
+/* Certificados: notas de la carta                                    */
+/* ------------------------------------------------------------------ */
+
+.notas {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.nota {
+  position: relative;
+  padding: 22px 24px 22px;
+  border: 1.5px solid var(--magenta);
+  background: var(--papel);
+}
+
+.nota h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 108;
+  line-height: 1.2;
+}
+
+.nota p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: var(--tinta-2);
+}
+
+.nota-one {
+  grid-column: 1 / -1;
+  border-color: var(--tinta);
+  background: var(--sonda-4);
+}
+
+.formaciones {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  columns: 2;
+  column-gap: 32px;
+}
+
+.formaciones li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--filete-fuerte);
+  break-inside: avoid;
+  font-size: 0.95rem;
+}
+
+.formaciones a {
+  font-weight: 600;
+  text-decoration-color: var(--filete-fuerte);
+}
+
+.formaciones a:hover {
+  color: var(--magenta);
+}
+
+.formaciones span {
+  flex: none;
+  font-style: italic;
+  font-feature-settings: 'tnum';
+  color: var(--tinta-3);
+}
+
+.certs {
+  grid-column: 1 / -1;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid var(--tinta);
+}
+
+.certs li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px 24px;
+  flex-wrap: wrap;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--filete);
+}
+
+.cert-nombre {
+  font-weight: 700;
+  max-width: 60ch;
+}
+
+.cert-nombre a:hover {
+  color: var(--magenta);
+}
+
+.cert-dato {
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--tinta-3);
+}
+
+/* ------------------------------------------------------------------ */
+/* Leyenda (habilidades)                                              */
+/* ------------------------------------------------------------------ */
+
+.ico-linea {
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: -0.2em;
+  color: var(--magenta);
+}
+
+.leyenda {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px 40px;
+}
+
+.leyenda-grupo h3 {
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--tinta);
+  font-size: 0.88rem;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 118;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.leyenda-grupo ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.leyenda-grupo li {
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  border-bottom: 1px solid var(--filete);
+  color: var(--tinta-2);
+}
+
+.leyenda-boton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 42px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--tinta);
+  font: inherit;
+  font-weight: 650;
+  text-align: left;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+
+.leyenda-boton svg {
+  width: 20px;
+  height: 20px;
+  color: var(--magenta);
+  transition: transform 300ms var(--salida);
+}
+
+.leyenda-boton:hover {
+  color: var(--magenta);
+}
+
+.leyenda-boton:hover svg,
+.leyenda-boton[aria-pressed='true'] svg {
+  transform: rotate(45deg);
+}
+
+.leyenda-boton[aria-pressed='true'] {
+  color: var(--magenta);
+}
+
+/* ------------------------------------------------------------------ */
+/* Contacto y pie                                                     */
+/* ------------------------------------------------------------------ */
+
+.contacto {
+  min-height: 80svh;
+  display: grid;
+  align-content: center;
+}
+
+.lamina-contacto {
+  max-width: 760px;
+  margin: 0 auto;
+  border: 2px solid var(--tinta);
+  outline: 1px solid var(--tinta);
+  outline-offset: -7px;
+  box-shadow: var(--sombra-lamina);
+}
+
+.correo {
+  margin-top: 18px;
+  font-size: clamp(1.0625rem, 2.2vw, 1.25rem);
+  font-weight: 700;
+  font-variation-settings: 'wdth' 92;
+  overflow-wrap: anywhere;
+}
+
+.redes {
+  display: flex;
+  gap: 24px;
+  margin-top: 12px;
+}
+
+.pie {
+  position: relative;
+  z-index: 2;
+  padding: 24px calc(var(--borde) + var(--gutter)) calc(var(--borde-abajo) + 24px);
+  background: var(--papel);
+  border-top: 1px solid var(--tinta);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--tinta-3);
+}
+
+/* ------------------------------------------------------------------ */
+/* Sala de video                                                      */
+/* ------------------------------------------------------------------ */
+
+.cine {
+  width: min(1180px, calc(100vw - 32px));
+  max-width: none;
+  max-height: calc(100svh - 32px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--tinta);
+  overflow: visible;
+}
+
+.cine::backdrop {
+  background: rgba(24, 35, 58, 0.72);
+  backdrop-filter: blur(3px);
+}
+
+.cine[open]::backdrop {
+  animation: velo-entra 320ms ease;
+}
+
+@keyframes velo-entra {
+  from {
+    opacity: 0;
+  }
+}
+
+.cine-marco {
+  padding: 14px;
+  background: var(--papel);
+  border: 2px solid var(--tinta);
+  outline: 1px solid var(--tinta);
+  outline-offset: -7px;
+  box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.6);
+}
+
+.cine-cabeza {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 4px 12px 8px;
+}
+
+.cine-cabeza h2 {
+  font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+  font-weight: 850;
+  font-variation-settings: 'wdth' 120;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.cine-cerrar,
+.cine-controles button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1.5px solid var(--tinta);
+  border-radius: 3px;
+  background: var(--papel);
+  color: var(--tinta);
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, transform 140ms var(--salida);
+}
+
+.cine-cerrar svg,
+.cine-controles button svg {
+  width: 22px;
+  height: 22px;
+}
+
+.cine-cerrar:hover,
+.cine-controles button:hover {
+  background: var(--tinta);
+  color: var(--papel);
+}
+
+.cine-cerrar:active,
+.cine-controles button:active {
+  transform: scale(0.95);
+}
+
+.cine-pantalla {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-height: calc(100svh - 210px);
+  margin: 0 auto;
+  background: #0d1424;
+  border: 2px solid var(--tinta);
+}
+
+.cine-pantalla video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #0d1424;
+}
+
+.cine-grande {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 84px;
+  height: 84px;
+  display: grid;
+  place-items: center;
+  padding: 0 0 0 6px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--magenta);
+  color: var(--papel);
+  cursor: pointer;
+  transition: transform 200ms var(--salida), opacity 200ms ease, background-color 160ms ease;
+}
+
+.cine-grande svg {
+  width: 38px;
+  height: 38px;
+}
+
+.cine-grande:hover {
+  background: var(--magenta-2);
+  transform: scale(1.05);
+}
+
+.cine-grande[hidden] {
+  display: none;
+}
+
+.cine-controles {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 12px;
+}
+
+.cine-escala {
+  position: relative;
+  flex: 1;
+  height: 14px;
+  border: 1.5px solid var(--tinta);
+  cursor: pointer;
+  touch-action: none;
+}
+
+.cine-escala:focus-visible {
+  outline-offset: 4px;
+}
+
+.cine-escala-tramos {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg, var(--tinta) 0 5%, var(--papel) 5% 10%);
+  opacity: 0.85;
+}
+
+.cine-escala-avance {
+  position: absolute;
+  inset: 0;
+  background: var(--magenta);
+  transform-origin: left;
+  transform: scaleX(0);
+  mix-blend-mode: multiply;
+}
+
+.cine-tiempo {
+  min-width: 7.4em;
+  font-size: 0.88rem;
+  font-style: italic;
+  font-feature-settings: 'tnum';
+  color: var(--tinta-2);
+  text-align: center;
+}
+
+.cine-nota {
+  padding: 10px 4px 2px;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--tinta-3);
+}
+
+/* ------------------------------------------------------------------ */
+/* Pantallas medianas y celulares                                     */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 1100px) {
+  .portada {
+    grid-template-columns: minmax(0, 520px) 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  .trazador {
+    grid-column: 2;
+    justify-self: end;
+    width: min(380px, 100%);
+  }
+
+  .pista {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .ficha {
+    grid-template-columns: 1fr;
+  }
+
+  .notas,
+  .leyenda {
+    grid-template-columns: 1fr;
+  }
+
+  .formaciones {
+    columns: 1;
+  }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --barra: 54px;
+    --borde: 6px;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .boton-cv {
+    margin-left: auto;
+  }
+
+  .portada {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-left: calc(var(--borde) + 12px);
+    padding-right: calc(var(--borde) + 12px);
+  }
+
+  .cartucho {
+    padding: 20px 18px 18px;
+  }
+
+  .cartucho-rol {
+    margin-top: 12px;
+    font-size: 1.0625rem;
+  }
+
+  .cartucho-texto {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .cartucho-pie {
+    display: none;
+  }
+
+  .cartucho .acciones {
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-top: 18px;
+  }
+
+  .cartucho .acciones .boton {
+    flex: 1;
+    min-height: 44px;
+    padding: 0 10px;
+    font-size: 0.88rem;
+  }
+
+  .cartucho h1 {
+    font-size: clamp(2rem, 10vw, 3.1rem);
+  }
+
+  .titulo {
+    font-size: clamp(1.75rem, 8vw, 2.6rem);
+    overflow-wrap: anywhere;
+  }
+
+  .ficha h3 {
+    font-size: clamp(1.6rem, 7.6vw, 2.2rem);
+  }
+
+  .portada::after {
+    content: '';
+    display: block;
+    flex: 1;
+    min-height: 40svh;
+  }
+
+  .trazador {
+    order: 3;
+    width: 100%;
+  }
+
+  .pista {
+    display: none;
+  }
+
+  .seccion {
+    padding-left: calc(var(--borde) + 12px);
+    padding-right: calc(var(--borde) + 12px);
+  }
+
+  .lamina {
+    padding: 22px 18px;
+  }
+
+  .inserto {
+    padding: 10px;
+  }
+
+  .inserto-pos {
+    display: none;
+  }
+
+  .ver-video {
+    left: 10px;
+    top: 10px;
+    min-height: 36px;
+    padding: 0 12px 0 5px;
+    gap: 7px;
+    font-size: 0.8rem;
+  }
+
+  .ver-video svg {
+    width: 26px;
+    height: 26px;
+    padding: 6px 5px 6px 7px;
+  }
+
+  /* La tabla se vuelve una lista de fichas con sus etiquetas. */
+  .luces thead {
+    display: none;
+  }
+
+  .luces,
+  .luces tbody,
+  .luces tr,
+  .luces td,
+  .luces tbody th {
+    display: block;
+  }
+
+  .luces tbody tr {
+    position: relative;
+    padding: 16px 0 16px 44px;
+    border-bottom: 1px solid var(--filete);
+  }
+
+  .luces td,
+  .luces tbody th {
+    padding: 0;
+    border: 0;
+  }
+
+  .luces td + td,
+  .luces th + td {
+    margin-top: 8px;
+  }
+
+  .luz-num {
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: auto;
+  }
+
+  .luz-anio::before {
+    content: 'Año ';
+    font-weight: 400;
+    color: var(--tinta-3);
+  }
+
+  .bitacora > li {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .cine {
+    width: calc(100vw - 16px);
+  }
+
+  .cine-marco {
+    padding: 8px;
+  }
+
+  .cine-tiempo {
+    display: none;
+  }
+
+  .cine-controles {
+    gap: 8px;
+  }
+
+  .pie {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}

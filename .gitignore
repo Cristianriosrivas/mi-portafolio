@@ -1,0 +1,7 @@
+# Configuración local
+.claude/
+
+# Material de trabajo de Impeccable que no se versiona
+.impeccable/review/
+.impeccable/questions/
+.impeccable/mocks/

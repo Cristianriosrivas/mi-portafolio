@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-19T03:30:00-05:00",
+  "title": "Design System: Carta de proyectos",
+  "extensions": {
+    "colorMeta": {
+      "chart-magenta": { "role": "primary", "displayName": "Magenta de carta", "canonical": "#b8006f", "tonalRamp": ["#3d0024", "#5e0038", "#83004e", "#b8006f", "#d6338e", "#e877b0", "#f3b5d3", "#fbe4ef"] },
+      "light-magenta": { "role": "primary", "displayName": "Magenta de luz", "canonical": "#d6338e", "tonalRamp": ["#4a0b2e", "#701346", "#9c1f63", "#d6338e", "#e463a8", "#ee93c2", "#f6c3dc", "#fdeaf3"] },
+      "chart-ink": { "role": "neutral", "displayName": "Tinta de carta", "canonical": "#18233a", "tonalRamp": ["#0b1120", "#18233a", "#2a3752", "#3a4862", "#5d6a82", "#8a94a7", "#bcc2cd", "#e6e9ee"] },
+      "chart-white": { "role": "neutral", "displayName": "Blanco de carta", "canonical": "#f8f9f7", "tonalRamp": ["#2f312d", "#5b5e58", "#8a8d86", "#b6b9b2", "#d7dad3", "#eef0ec", "#f8f9f7", "#ffffff"] },
+      "land-buff": { "role": "neutral", "displayName": "Tierra de carta", "canonical": "#efd9a6", "tonalRamp": ["#4a3a14", "#76602a", "#a68a49", "#cdb070", "#e2c27f", "#efd9a6", "#f6e9c9", "#fcf6e8"] },
+      "sounding-shallow": { "role": "neutral", "displayName": "Tinte de sonda", "canonical": "#9fcbe3", "tonalRamp": ["#163a4f", "#28607f", "#4b8bb0", "#6fa9cb", "#9fcbe3", "#bcdcec", "#d6eaf3", "#e9f3f7"] },
+      "buoy-red": { "role": "secondary", "displayName": "Rojo de boya", "canonical": "#c8102e" },
+      "buoy-green": { "role": "secondary", "displayName": "Verde de boya", "canonical": "#00804a" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "El nombre en el cartucho de título." },
+      "headline": { "displayName": "Headline", "purpose": "Títulos de sección." },
+      "title": { "displayName": "Title", "purpose": "El nombre de cada proyecto." },
+      "body": { "displayName": "Body", "purpose": "Párrafos de 46 a 62 caracteres." },
+      "water": { "displayName": "Agua", "purpose": "Cursiva estrecha para roles, fechas, notas, sondas y pilas de tecnologías." },
+      "label": { "displayName": "Label", "purpose": "Encabezados de listas, cabezas de tabla y nombres en las etiquetas de luces." }
+    },
+    "shadows": [
+      { "name": "lamina", "value": "0 22px 48px -26px rgba(24, 35, 58, 0.5), 0 2px 6px -2px rgba(24, 35, 58, 0.12)", "purpose": "Piezas de papel (cartucho, trazador, láminas, planos) flotando sobre la carta 3D." },
+      { "name": "sala", "value": "0 40px 80px -30px rgba(0, 0, 0, 0.6)", "purpose": "El plano ampliado de video sobre el velo." }
+    ],
+    "motion": [
+      { "name": "salida", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Entradas, presión de botones, la sala de video que crece desde su plano." },
+      { "name": "vaiven", "value": "cubic-bezier(0.77, 0, 0.175, 1)", "purpose": "Movimiento en pantalla, como el regreso de la sala de video a su plano." },
+      { "name": "camara", "value": "amortiguación exponencial 1 - e^(-2.4·dt)", "purpose": "La cámara de la carta vuela a cada destino y se puede interrumpir." },
+      { "name": "rumbo", "value": "1600ms, ease-out cúbico", "purpose": "La derrota magenta se dibuja de luz en luz." }
+    ],
+    "breakpoints": [
+      { "name": "celular", "value": "760px" },
+      { "name": "mediana", "value": "900px" },
+      { "name": "marco-con-coordenadas", "value": "1100px" },
+      { "name": "carta-a-un-lado", "value": "1240px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón primario",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "La acción principal de cada pieza: tinta llena, pasa a magenta.",
+      "html": "<a class=\"ds-boton ds-boton-tinta\" href=\"#\">Ver los proyectos</a>",
+      "css": ".ds-boton { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 20px; border: 1.5px solid var(--tinta, #18233a); border-radius: 3px; font-family: Archivo, 'Arial Narrow', sans-serif; font-size: 0.95rem; font-weight: 700; font-variation-settings: 'wdth' 108; text-decoration: none; cursor: pointer; transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, transform 160ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-boton-tinta { background: #18233a; color: #f8f9f7; } .ds-boton-tinta:hover { background: #b8006f; border-color: #b8006f; } .ds-boton:active { transform: scale(0.97); } .ds-boton:focus-visible { outline: 2px solid #b8006f; outline-offset: 3px; }"
+    },
+    {
+      "name": "Botón de línea",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Acción secundaria (Descargar CV, Copiar el correo).",
+      "html": "<a class=\"ds-boton-linea\" href=\"#\">Descargar CV</a>",
+      "css": ".ds-boton-linea { display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border: 1.5px solid #18233a; border-radius: 3px; background: #f8f9f7; color: #18233a; font-family: Archivo, 'Arial Narrow', sans-serif; font-size: 0.95rem; font-weight: 700; text-decoration: none; transition: color 180ms ease, border-color 180ms ease; } .ds-boton-linea:hover { color: #b8006f; border-color: #b8006f; } .ds-boton-linea:focus-visible { outline: 2px solid #b8006f; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ficha de habilidad",
+      "kind": "chip",
+      "refersTo": "chip-skill",
+      "description": "Elige una habilidad para trazar su rumbo en la carta.",
+      "html": "<button class=\"ds-ficha\" aria-pressed=\"false\">React</button> <button class=\"ds-ficha\" aria-pressed=\"true\">IA y agentes</button>",
+      "css": ".ds-ficha { min-height: 32px; padding: 0 11px; border: 1px solid rgba(24, 35, 58, 0.55); border-radius: 999px; background: #f8f9f7; color: #18233a; font-family: Archivo, 'Arial Narrow', sans-serif; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease; } .ds-ficha:hover { border-color: #b8006f; color: #b8006f; } .ds-ficha[aria-pressed='true'] { background: #b8006f; border-color: #b8006f; color: #f8f9f7; } .ds-ficha:focus-visible { outline: 2px solid #b8006f; outline-offset: 3px; }"
+    },
+    {
+      "name": "Campo del trazador",
+      "kind": "input",
+      "description": "Texto libre para trazar un rumbo (RAG, Expo, Supabase…).",
+      "html": "<input class=\"ds-campo\" placeholder=\"O escribe una: RAG, Expo, Supabase…\" />",
+      "css": ".ds-campo { min-height: 40px; padding: 0 12px; border: 1px solid rgba(24, 35, 58, 0.55); border-radius: 3px; background: #f8f9f7; color: #18233a; font-family: Archivo, 'Arial Narrow', sans-serif; font-size: 0.92rem; caret-color: #b8006f; } .ds-campo::placeholder { color: #5d6a82; font-style: italic; } .ds-campo:focus-visible { outline: 2px solid #b8006f; outline-offset: 0; border-color: #b8006f; }"
+    },
+    {
+      "name": "Etiqueta de luz",
+      "kind": "custom",
+      "description": "El rótulo de cada luz en la carta: nombre y característica.",
+      "html": "<button class=\"ds-senal\"><span class=\"ds-senal-nombre\">MediFlow</span><span class=\"ds-senal-car\">Fl(2) 6s</span></button>",
+      "css": ".ds-senal { display: grid; gap: 1px; padding: 5px 8px 6px; border: 1px solid rgba(24, 35, 58, 0.22); border-radius: 2px; background: rgba(248, 249, 247, 0.88); color: #18233a; text-align: left; font-family: Archivo, 'Arial Narrow', sans-serif; cursor: pointer; transition: border-color 200ms ease, transform 260ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-senal:hover { border-color: #b8006f; transform: translateY(-3px); } .ds-senal-nombre { font-size: 0.78rem; font-weight: 800; font-variation-settings: 'wdth' 118; letter-spacing: 0.06em; text-transform: uppercase; } .ds-senal-car { font-size: 0.74rem; font-style: italic; font-variation-settings: 'wdth' 80; color: #b8006f; }"
+    },
+    {
+      "name": "Cartucho",
+      "kind": "card",
+      "description": "Pieza principal con doble filete: el título de la carta.",
+      "html": "<div class=\"ds-cartucho\"><h1>Cristian<br>David Rios</h1><p>Desarrollador Frontend y Mobile</p></div>",
+      "css": ".ds-cartucho { padding: 28px 30px; background: #f8f9f7; border: 2px solid #18233a; outline: 1px solid #18233a; outline-offset: -7px; box-shadow: 0 22px 48px -26px rgba(24, 35, 58, 0.5); font-family: Archivo, 'Arial Narrow', sans-serif; color: #18233a; } .ds-cartucho h1 { margin: 0; font-size: 3rem; font-weight: 850; font-variation-settings: 'wdth' 122; line-height: 0.92; text-transform: uppercase; } .ds-cartucho p { margin: 14px 0 0; font-style: italic; font-weight: 560; font-variation-settings: 'wdth' 86; color: #b8006f; }"
+    },
+    {
+      "name": "Navegación",
+      "kind": "nav",
+      "description": "Enlaces de la barra con subrayado magenta que crece desde la izquierda.",
+      "html": "<nav class=\"ds-menu\"><a href=\"#\" aria-current=\"true\">Proyectos</a><a href=\"#\">Experiencia</a><a href=\"#\">Contacto</a></nav>",
+      "css": ".ds-menu { display: flex; gap: 28px; font-family: Archivo, 'Arial Narrow', sans-serif; } .ds-menu a { position: relative; padding: 6px 0; color: #3a4862; font-size: 0.92rem; font-weight: 600; text-decoration: none; } .ds-menu a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: #b8006f; transform: scaleX(0); transform-origin: left; transition: transform 260ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-menu a:hover, .ds-menu a[aria-current='true'] { color: #18233a; } .ds-menu a:hover::after, .ds-menu a[aria-current='true']::after { transform: scaleX(1); } .ds-menu a:focus-visible { outline: 2px solid #b8006f; outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "La carta de la bahía",
+    "overview": "Todo el sitio es una carta náutica de la Bahía de Buenaventura impresa y levantada en relieve. El agua profunda es papel blanco, la somera se tiñe de azul por bandas de profundidad, la tierra es beige de carta, los textos son tinta azul negra y el magenta, el color con que las cartas marcan luces, rumbos y avisos, es la única voz de acento. Los proyectos son luces con su característica real (Fl(2) 6s, Q 1s, Oc 4s, Iso 2s), el contenido son las piezas impresas de una carta (cartucho de título, planos de detalle, lista de luces, notas, leyenda) y la interacción es navegación: trazar un rumbo entre luces.\n\nLa carta en 3D vive detrás de todo (Three.js, una sola escena continua) y el contenido flota encima, siempre en el plano más cercano. La densidad cambia por sección: la portada respira sobre la carta; las láminas de contenido son papel opaco con filete; la cámara vuela a la luz de cada proyecto mientras se lee su plano.\n\nEl papel se pasó a blanco neutro (#f8f9f7) en vez de un blanco cálido: las cartas impresas dejan el agua profunda en blanco y el calor lo pone la tierra. Así el fondo no cae en el crema genérico.",
+    "keyCharacteristics": [
+      "Una carta náutica de verdad como mundo: sondas en cursiva con décimas en subíndice, isóbatas, rosa de los vientos, canal balizado (IALA B), escala gráfica en millas.",
+      "Magenta reservado para luces, rumbos, notas y la acción de ver video.",
+      "Archivo con su eje de ancho: mayúsculas expandidas para rótulos de tierra y títulos, cursiva estrecha para nombres de agua, sondas y datos.",
+      "Filetes dobles y marcos graduados en vez de tarjetas redondeadas.",
+      "Movimiento como navegación: la cámara se amortigua hacia cada destino y se puede interrumpir."
+    ],
+    "rules": [
+      { "name": "La regla de las luces", "body": "El magenta solo marca lo que en una carta sería luz, rumbo o aviso: características, derrotas, notas y la acción de ver un video. Nunca es fondo de sección ni adorno.", "section": "colors" },
+      { "name": "La regla del papel blanco", "body": "El fondo es blanco de carta, no crema. El calor del mundo lo ponen la tierra y la tinta.", "section": "colors" },
+      { "name": "La regla tierra y agua", "body": "Lo que nombra un lugar o un proyecto va recto y expandido; lo que describe, fecha o mide va en cursiva estrecha.", "section": "typography" },
+      { "name": "La regla de una sombra", "body": "Las piezas impresas tienen un filete o una sombra de lámina, nunca un brillo de color ni una sombra dura sin desenfoque.", "section": "elevation" }
+    ],
+    "dos": [
+      "**Do** usar el magenta solo para luces, rumbos, notas y la acción de ver video.",
+      "**Do** separar tierra y agua en la tipografía: mayúsculas expandidas para nombres, cursiva estrecha para datos.",
+      "**Do** enmarcar con filetes (doble filete en piezas principales) y esquinas de 3px.",
+      "**Do** mantener el contenido legible sin la carta 3D: todo está en el HTML y la carta tiene respaldo plano y modo quieto con `prefers-reduced-motion`.",
+      "**Do** etiquetar la geografía como esquemática y no apta para navegación."
+    ],
+    "donts": [
+      "**Don't** usar fondo crema; el papel es blanco de carta (#f8f9f7).",
+      "**Don't** usar brillos de color, sombras duras sin desenfoque ni vidrio decorativo.",
+      "**Don't** poner etiquetas o rótulos encima de los títulos (kickers).",
+      "**Don't** publicar certificados con número de documento; se nombran, no se adjuntan."
+    ]
+  }
+}
