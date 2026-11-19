@@ -7,7 +7,7 @@ export const PROYECTOS = [
   { id: 'english-buddy', nombre: 'English Buddy', destacado: true, habilidades: ['react', 'nextjs', 'typescript', 'supabase', 'ia', 'tailwind'], fecha: 2026.87, destino: '#p-english-buddy' },
   { id: 'tu-guia', nombre: 'Tu Guía Inteligente', destacado: true, habilidades: ['react', 'typescript', '3d', 'ia', 'supabase', 'diseno'], fecha: 2026.88, destino: '#p-tu-guia' },
   { id: 'gestor-rutas', nombre: 'Gestor de Rutas', habilidades: ['react', 'typescript', 'algoritmos'], fecha: 2026.9, destino: '#otro-gestor-rutas' },
-  { id: 'asistente-univalle', nombre: 'Asistente Univalle', habilidades: ['python', 'ia'], fecha: 2026.84, destino: '#otro-asistente-univalle' },
+  { id: 'asistente-univalle', nombre: 'Asistente Univalle', destacado: true, habilidades: ['python', 'ia'], fecha: 2026.84, destino: '#p-asistente-univalle' },
   { id: 'afro-univalluna', nombre: 'Afro Univalluna', habilidades: ['diseno'], fecha: 2026.6, destino: '#otro-afro-univalluna' },
   { id: 'alza-tu-voz', nombre: 'Alza tu Voz', habilidades: ['vue', 'python', 'ia'], fecha: 2026.68, destino: '#otro-alza-tu-voz' },
   { id: 'luminastore', nombre: 'LuminaStore', habilidades: ['python', 'ia'], fecha: 2026.55, destino: '#otro-luminastore' },

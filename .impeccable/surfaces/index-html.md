@@ -11,7 +11,7 @@ Modo: Experience (el trabajo lleva desde el primer viewport). Construcción code
 
 Audiencia y tarea: reclutadores y líderes técnicos con pocos minutos; deben ver los productos funcionando, entender el rol de Cristian en cada uno y escribirle o descargar el CV.
 
-Prueba y contenido: cuatro videos promocionales propios (MediFlow, Finnets, English Buddy, Tu Guía Inteligente), demos públicas, hoja de vida, certificaciones (Oracle, Alura, SENA, Cisco, MinTIC). Sin testimonios ni métricas inventadas.
+Prueba y contenido: cinco videos promocionales propios (MediFlow, Finnets, English Buddy, Tu Guía Inteligente, Asistente Virtual Univalle), demos públicas, hoja de vida, certificaciones (Oracle, Alura, SENA, Cisco, MinTIC). Sin testimonios ni métricas inventadas.
 
 Restricciones: sitio estático sin build en Vercel; español; identidad profesional, neutra y de software, sin motivos regionales ni marinos (Buenaventura solo como dato de ubicación); certificados con cédula no se publican.
 

@@ -11,7 +11,7 @@ const $$ = (s, raiz = document) => [...raiz.querySelectorAll(s)];
 const PALABRAS = {
   react: ['React', 'React Native'],
   typescript: ['TypeScript'],
-  ia: ['LangGraph', 'Gemini', 'Groq', 'Web Speech API'],
+  ia: ['LangGraph', 'Gemini', 'Groq', 'RAG', 'Web Speech API'],
   movil: ['React Native', 'Expo', 'PWA'],
   nextjs: ['Next.js'],
   python: ['FastAPI', 'pytest'],
@@ -69,8 +69,6 @@ function filtrar(id) {
   $$('.ficha-habilidad').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.h === id)));
 
   const usan = id ? PROYECTOS.filter((p) => p.habilidades.includes(id)).sort((a, b) => b.fecha - a.fecha) : [];
-  const ids = new Set(usan.map((p) => p.id));
-  $$('[data-proyecto]').forEach((el) => el.classList.toggle('atenuado', Boolean(id) && !ids.has(el.dataset.proyecto)));
   const palabras = id ? PALABRAS[id] ?? [] : [];
   $$('.pila li').forEach((li) => li.classList.toggle('coincide', palabras.includes(li.textContent.trim())));
 

@@ -18,6 +18,7 @@ colors:
   surface-sunken: "#f1f3f6"
   line: "#e3e6eb"
   line-strong: "#cdd3dc"
+  line-project: "#b9c0cc"
   panel-text: "#e9ecf2"
   panel-muted: "#8a93a6"
   panel-chip: "#c4cad6"
@@ -150,7 +151,7 @@ components:
 
 Un portafolio de desarrollador en su forma estándar, ejecutado con el oficio de un sitio de producto de software: página clara de fondo blanco frío, tipografía Geist apretada y segura, mucho aire y un solo acento cobalto que marca lo interactivo. Quien contrata entiende en segundos quién es, qué busca y qué ha construido.
 
-El gesto propio es el mapa de habilidades en 3D de la portada: un panel de tinta, como la ventana de un producto, donde los diez proyectos orbitan en un anillo y cada tecnología queda dentro, cerca de los proyectos que la usan. Elegir una habilidad enciende sus conexiones, manda señales hacia los proyectos y atenúa en la página los que no la usan. El cierre repite la superficie de tinta con su retícula de puntos, así la página abre y termina en el mismo material.
+El gesto propio es el mapa de habilidades en 3D de la portada: un panel de tinta, como la ventana de un producto, donde los diez proyectos orbitan en un anillo y cada tecnología queda dentro, cerca de los proyectos que la usan. Elegir una habilidad enciende sus conexiones, manda señales hacia los proyectos y resalta en la página las etiquetas de tecnología que coinciden. El cierre repite la superficie de tinta con su retícula de puntos, así la página abre y termina en el mismo material.
 
 La identidad es profesional y neutra a propósito: nada de temas regionales o decorativos. El lugar (Buenaventura, Colombia) es un dato, no un motivo.
 
@@ -173,7 +174,7 @@ Neutros fríos con un solo acento: el color existe para decir «esto se puede to
 - **Tinta** (ink): títulos, texto principal, botón primario y las superficies oscuras.
 - **Tinta secundaria y tenue** (ink-secondary, ink-muted): párrafos y datos de apoyo.
 - **Página, superficie y superficie hundida** (page, surface, surface-sunken): el fondo frío, las tarjetas blancas y los estados de hover del menú.
-- **Líneas** (line, line-strong): separadores de 1px y bordes de controles.
+- **Líneas** (line, line-strong, line-project): separadores de 1px y bordes de controles; line-project, más marcada, separa los proyectos destacados.
 - **Texto de panel** (panel-text, panel-muted, panel-chip, panel-link, panel-active): el texto sobre el mapa de habilidades; cobalt-panel es la ficha elegida.
 - **Sobre tinta** (on-ink, on-ink-strong, ink-raised): textos y bordes del cierre y del panel.
 - **Disponible** (available): solo el punto de estado de la portada.

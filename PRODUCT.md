@@ -35,7 +35,7 @@ Desarrollador frontend y mobile que publica productos reales con IA aplicada y p
 ## Capabilities and Constraints
 
 - Proyectos con demo pública: MediFlow (mediflow-frontend-wheat.vercel.app), Finnets (fitnnets.vercel.app), English Buddy (english-buddy-six-drab.vercel.app), Tu Guía Inteligente (cristianriosrivas.github.io/Tu-Guia-Inteligente-buenaventura), Alza tu Voz (alza-tu-voz.vercel.app), Agente LuminaStore (Streamlit).
-- Videos promocionales: MediFlow, Finnets, English Buddy y Tu Guía Inteligente.
+- Videos promocionales: MediFlow, Finnets, English Buddy, Tu Guía Inteligente y Asistente Virtual Univalle.
 - MediFlow es un trabajo de equipo (6 personas, Hackathon ONE G10); Cristian hizo el frontend, el agente de IA y el despliegue. No atribuirle el proyecto entero.
 - La Revista Afro Univalluna aún no está publicada: no hay enlace.
 - El organizador para parejas se retiró del portafolio a propósito (commit del 8 nov 2026); no volver a ponerlo.

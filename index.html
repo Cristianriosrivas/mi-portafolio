@@ -106,7 +106,7 @@
     <section id="proyectos" class="seccion" aria-labelledby="titulo-proyectos">
       <div class="seccion-cabeza">
         <h2 id="titulo-proyectos">Proyectos destacados</h2>
-        <p>Cuatro productos publicados. Cada uno tiene su video, con voz en español, subtítulos en español e inglés y música original hecha para él.</p>
+        <p>Cinco productos publicados. Cada uno tiene su video, con voz en español, subtítulos en español e inglés y música original hecha para él.</p>
       </div>
 
       <article class="proyecto" id="p-mediflow" data-proyecto="mediflow" aria-labelledby="t-mediflow">
@@ -221,6 +221,33 @@
           </p>
         </div>
       </article>
+      <article class="proyecto" id="p-asistente-univalle" data-proyecto="asistente-univalle" aria-labelledby="t-asistente-univalle">
+        <div class="medio">
+          <video class="avance" muted loop playsinline preload="none" poster="assets/img/asistente-univalle.jpg" data-src="assets/video/asistente-univalle-avance.mp4" aria-hidden="true"></video>
+          <button class="ver-video" type="button" data-video="asistente-univalle" data-titulo="Asistente Virtual Univalle" data-duracion="1:26"><svg aria-hidden="true"><use href="#i-play" /></svg>Ver video <span class="duracion">1:26</span></button>
+          <span class="medio-avance" aria-hidden="true"><i></i></span>
+        </div>
+        <div class="proyecto-texto">
+          <h3 id="t-asistente-univalle">Asistente Virtual Univalle</h3>
+          <p class="proyecto-sub">Asistente con IA para aspirantes y estudiantes de la Universidad del Valle</p>
+          <p>Responde en segundos, a cualquier hora, sobre admisiones, matrícula, reglamento, trámites y grados. No inventa: cada respuesta dice de qué norma o página oficial sale, y los funcionarios aprueban los cambios antes de publicarlos.</p>
+          <dl class="ficha">
+            <div><dt>Contexto</dt><dd>Proyecto propio · prototipo académico</dd></div>
+            <div><dt>Fecha</dt><dd>noviembre 2026</dd></div>
+          </dl>
+          <h4>Lo que hice</h4>
+          <ul class="hice">
+            <li>El motor en Python con FastAPI y SQLite: búsqueda por palabras clave (BM25) y por significado, con una cadena de IA gratuita (Gemini, Groq o Cohere) que solo redacta a partir de fuentes oficiales.</li>
+            <li>El panel de funcionarios: editores y aprobadores por dependencia, revisión antes de publicar, historial con restauración y avisos destacados.</li>
+            <li>La lectura automática de las páginas oficiales y las noticias, la protección de datos personales y casi 200 pruebas automáticas.</li>
+          </ul>
+          <ul class="pila" aria-label="Tecnologías"><li>Python</li><li>FastAPI</li><li>SQLite</li><li>BM25</li><li>RAG</li><li>Gemini</li><li>Groq</li><li>Streamlit</li></ul>
+          <p class="enlaces">
+            <a class="boton boton-tinta boton-chico" href="https://reglamento-univalle-ia-d2u6pdect5emm4nbc9hkxe.streamlit.app/" target="_blank" rel="noopener">Probar el asistente<svg aria-hidden="true"><use href="#i-flecha" /></svg></a>
+            <a class="enlace" href="https://github.com/Cristianriosrivas/reglamento-univalle-ia" target="_blank" rel="noopener">Código</a>
+          </p>
+        </div>
+      </article>
     </section>
 
     <!-- OTROS PROYECTOS -->
@@ -238,15 +265,6 @@
             <p class="otro-pila">React · TypeScript · Vite · Vitest</p>
           </div>
           <p class="otro-enlaces"><a href="https://gestor-rutas-ada.cristian-david-rios.workers.dev" target="_blank" rel="noopener">Abrir<svg aria-hidden="true"><use href="#i-flecha" /></svg></a><a href="https://github.com/Cristianriosrivas/Proyecto_ADA" target="_blank" rel="noopener">Código<svg aria-hidden="true"><use href="#i-flecha" /></svg></a></p>
-        </li>
-        <li id="otro-asistente-univalle" data-proyecto="asistente-univalle">
-          <span class="otro-anio">2026</span>
-          <div class="otro-cuerpo">
-            <h3>Asistente virtual de la Univalle <span>Prototipo académico independiente</span></h3>
-            <p>Responde a aspirantes y estudiantes sobre admisiones, matrícula y reglamento, y dice de qué norma o página oficial sale cada respuesta. Tiene panel para funcionarios y casi 200 pruebas automáticas.</p>
-            <p class="otro-pila">Python · FastAPI · SQLite · BM25 y vectores · Streamlit</p>
-          </div>
-          <p class="otro-enlaces"><a href="https://reglamento-univalle-ia-d2u6pdect5emm4nbc9hkxe.streamlit.app/" target="_blank" rel="noopener">Probar<svg aria-hidden="true"><use href="#i-flecha" /></svg></a><a href="https://github.com/Cristianriosrivas/reglamento-univalle-ia" target="_blank" rel="noopener">Código<svg aria-hidden="true"><use href="#i-flecha" /></svg></a></p>
         </li>
         <li id="otro-afro-univalluna" data-proyecto="afro-univalluna">
           <span class="otro-anio">2026</span>

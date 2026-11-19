@@ -8,6 +8,7 @@
   --superficie-2: #f1f3f6;
   --borde: #e3e6eb;
   --borde-fuerte: #cdd3dc;
+  --linea-proyecto: #b9c0cc;
   --tinta: #0e1116;
   --tinta-2: #434c5e;
   --tinta-3: #5d6578;
@@ -677,18 +678,17 @@ kbd {
   grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
   gap: clamp(28px, 4vw, 64px);
   align-items: start;
-  padding: clamp(36px, 5vh, 56px) 0;
-  border-top: 1px solid var(--borde);
-  transition: opacity 260ms ease;
+  padding: clamp(40px, 6vh, 64px) 0;
+  /* Separa cada proyecto con una línea marcada. */
+  border-top: 1px solid var(--linea-proyecto);
+}
+
+.proyecto:last-of-type {
+  border-bottom: 1px solid var(--linea-proyecto);
 }
 
 .proyecto-inverso .medio {
   order: 2;
-}
-
-.proyecto.atenuado,
-.otros li.atenuado {
-  opacity: 0.4;
 }
 
 .medio {
