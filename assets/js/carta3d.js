@@ -787,7 +787,8 @@ export async function iniciarCarta({ lienzo, capa, proyectos, otros, reducido = 
     boton.tabIndex = -1;
     boton.className = `senal${def.mayor ? '' : ' senal-menor'}`;
     boton.innerHTML = `<span class="senal-texto"><span class="senal-nombre"></span><span class="senal-car"></span></span>`;
-    boton.querySelector('.senal-nombre').textContent = def.nombre;
+    // En pantallas angostas los nombres largos usan su forma corta.
+    boton.querySelector('.senal-nombre').textContent = movil && def.corto ? def.corto : def.nombre;
     boton.querySelector('.senal-car').textContent = def.caracteristica;
     boton.hidden = !def.mayor;
     boton.style.opacity = '0';
@@ -1078,32 +1079,44 @@ export async function iniciarCarta({ lienzo, capa, proyectos, otros, reducido = 
     if (sucio || ++vueltasObstaculos > 45) medirObstaculos();
     const lista = capa.classList.contains('lista');
     const colocadas = [];
+    const margen = 14;
+    const dentro = (a) => a.x >= margen && a.x + a.w <= ancho - margen && a.y >= 0 && a.y + a.h <= alto;
     const choca = (a) =>
       obstaculos.some((o) => a.x < o.right && a.x + a.w > o.left && a.y < o.bottom && a.y + a.h > o.top) ||
       colocadas.some((c) => a.x < c.x + c.w && a.x + a.w > c.x && a.y < c.y + c.h && a.y + a.h > c.y);
+    // Cada luz visible ocupa su lugar en pantalla: ninguna etiqueta la tapa.
+    for (const o of objetos) {
+      v.copy(o.cima).project(camara);
+      o.px = ((v.x + 1) / 2) * ancho;
+      o.py = ((1 - v.y) / 2) * alto;
+      o.delante = v.z < 1;
+      if (o.delante) colocadas.push({ x: o.px - 9, y: o.py - 9, w: 18, h: 34 });
+    }
     for (const o of objetos) {
       if (o.boton.hidden) continue;
-      v.copy(o.cima).project(camara);
-      const px = ((v.x + 1) / 2) * ancho;
-      const py = ((1 - v.y) / 2) * alto;
+      const { px, py } = o;
       if (!o.anchoEtiqueta) {
         o.anchoEtiqueta = o.boton.offsetWidth;
         o.altoEtiqueta = o.boton.offsetHeight;
       }
       const w = o.anchoEtiqueta;
       const h = o.altoEtiqueta;
-      let caja = { x: px - 6, y: py - h - 14, w, h };
-      if (caja.x + w > ancho - 18 || choca(caja)) {
-        const izquierda = { x: px - w + 6, y: caja.y, w, h };
-        if (!choca(izquierda)) caja = izquierda;
-      }
-      const fuera = v.z > 1 || px < 0 || px > ancho || py < 0 || py > alto;
+      // Arriba a la derecha, arriba a la izquierda, abajo a la derecha, abajo a la izquierda.
+      const opciones = [
+        { x: px - 6, y: py - h - 14, w, h },
+        { x: px - w + 6, y: py - h - 14, w, h },
+        { x: px - 6, y: py + 30, w, h },
+        { x: px - w + 6, y: py + 30, w, h },
+      ];
+      const caja = opciones.find((c) => dentro(c) && !choca(c));
       const luzTapada = obstaculos.some((r) => px > r.left && px < r.right && py > r.top && py < r.bottom);
-      const ver = lista && !fuera && !luzTapada && !choca(caja);
+      const ver = lista && o.delante && !luzTapada && Boolean(caja);
       o.boton.style.opacity = ver ? '1' : '0';
       o.boton.style.pointerEvents = ver ? '' : 'none';
-      o.boton.style.transform = `translate3d(${caja.x}px, ${py}px, 0) translate(0, -100%)`;
-      if (ver) colocadas.push(caja);
+      if (ver) {
+        o.boton.style.transform = `translate3d(${caja.x}px, ${caja.y + h + 14}px, 0) translate(0, -100%)`;
+        colocadas.push(caja);
+      }
     }
     for (const e of etiquetasRumbo) {
       v.copy(e.punto).project(camara);
@@ -1115,7 +1128,7 @@ export async function iniciarCarta({ lienzo, capa, proyectos, otros, reducido = 
       }
       const caja = { x: px - e.ancho / 2, y: py - e.alto / 2, w: e.ancho, h: e.alto };
       const llego = progresoRumbo.value * matRumbo.uniforms.uTotal.value >= e.desde;
-      const ver = llego && v.z < 1 && !choca(caja);
+      const ver = llego && v.z < 1 && dentro(caja) && !choca(caja);
       e.el.style.opacity = ver ? '1' : '0';
       e.el.style.transform = `translate3d(${px}px, ${py}px, 0) translate(-50%, -50%)`;
       if (ver) colocadas.push(caja);

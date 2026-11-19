@@ -36,6 +36,7 @@ export const PROYECTOS = [
   {
     id: 'tu-guia',
     nombre: 'Tu Guía Inteligente',
+    corto: 'Tu Guía',
     caracteristica: 'Iso 2s',
     luz: { tipo: 'iso', periodo: 2 },
     posicion: [4.15, -0.35],
@@ -48,7 +49,7 @@ export const PROYECTOS = [
 /** La "Lista de luces": señales menores, que se nombran cuando un rumbo pasa por ellas. */
 export const OTROS = [
   { id: 'gestor-rutas', nombre: 'Gestor de Rutas', caracteristica: 'Fl 5s', luz: { tipo: 'grupo', destellos: 1, periodo: 5 }, posicion: [5.75, 0.1], habilidades: ['react', 'typescript', 'algoritmos'], fecha: 2026.9, destino: '#luz-gestor-rutas' },
-  { id: 'asistente-univalle', nombre: 'Asistente Univalle', caracteristica: 'Fl(3) 10s', luz: { tipo: 'grupo', destellos: 3, periodo: 10 }, posicion: [7.4, 0.0], habilidades: ['python', 'ia'], fecha: 2026.84, destino: '#luz-asistente-univalle' },
+  { id: 'asistente-univalle', nombre: 'Asistente Univalle', corto: 'Asistente', caracteristica: 'Fl(3) 10s', luz: { tipo: 'grupo', destellos: 3, periodo: 10 }, posicion: [7.4, 0.0], habilidades: ['python', 'ia'], fecha: 2026.84, destino: '#luz-asistente-univalle' },
   { id: 'afro-univalluna', nombre: 'Afro Univalluna', caracteristica: 'Oc(2) 8s', luz: { tipo: 'ocultacion', periodo: 8 }, posicion: [7.55, -0.95], habilidades: ['diseno'], fecha: 2026.6, destino: '#luz-afro-univalluna' },
   { id: 'alza-tu-voz', nombre: 'Alza tu Voz', caracteristica: 'LFl 10s', luz: { tipo: 'largo', periodo: 10 }, posicion: [0.6, 1.45], habilidades: ['vue', 'python', 'ia'], fecha: 2026.68, destino: '#luz-alza-tu-voz' },
   { id: 'luminastore', nombre: 'LuminaStore', caracteristica: 'Q(3) 10s', luz: { tipo: 'grupo', destellos: 3, periodo: 10 }, posicion: [-3.6, 0.15], habilidades: ['python', 'ia'], fecha: 2026.55, destino: '#luz-luminastore' },

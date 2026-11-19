@@ -1816,6 +1816,21 @@ main .plano > * {
     padding-right: calc(var(--borde) + 12px);
   }
 
+  /* Rótulos de la carta más pequeños: caben las cuatro luces en la bahía. */
+  .senal-texto {
+    padding: 3px 6px 4px;
+  }
+
+  .senal-nombre,
+  .senal-menor .senal-nombre {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+  }
+
+  .senal-car {
+    font-size: 0.72rem;
+  }
+
   .cartucho {
     padding: 20px 18px 18px;
   }
