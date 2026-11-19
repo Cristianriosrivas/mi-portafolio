@@ -1002,9 +1002,16 @@ export async function iniciarCarta({ lienzo, capa, proyectos, otros, reducido = 
     vueltasObstaculos = 0;
   }
 
+  // Con la sala de video abierta la carta queda detrás del velo: se deja de dibujar para que el
+  // equipo (GPU y CPU) quede libre para decodificar el video.
+  let enPausa = false;
+
   function cuadro(ahora = performance.now()) {
     requestAnimationFrame(cuadro);
-    if (!visible) return;
+    if (!visible || enPausa) {
+      anterior = ahora;
+      return;
+    }
     const dt = Math.min((ahora - anterior) / 1000, 0.1);
     anterior = ahora;
     tiempo += dt;
@@ -1131,6 +1138,9 @@ export async function iniciarCarta({ lienzo, capa, proyectos, otros, reducido = 
     irA,
     trazarRumbo,
     borrarRumbo,
+    pausar(valor) {
+      enPausa = Boolean(valor);
+    },
     resaltar(id) {
       objetos.forEach((o) => o.boton.classList.toggle('activa', o.def.id === id));
     },

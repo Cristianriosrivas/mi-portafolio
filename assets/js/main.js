@@ -282,6 +282,7 @@ function abrirCine(boton) {
   cineVideo.muted = false;
   usar(botonSonido, '#i-sonido', 'Silenciar');
   avances.forEach((v) => v.pause());
+  carta?.pausar?.(true);
   cine.showModal();
   if (!reducido) {
     const desde = desdeElPlano();
@@ -324,6 +325,7 @@ cine.addEventListener('cancel', (e) => {
 
 cine.addEventListener('close', () => {
   cineVideo.pause();
+  carta?.pausar?.(false);
   origen?.focus({ preventScroll: true });
   avances.forEach((v) => {
     if (v.src && v.getBoundingClientRect().top < innerHeight && v.getBoundingClientRect().bottom > 0) v.play().catch(() => {});
